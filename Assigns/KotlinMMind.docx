@@ -1,0 +1,19 @@
+Kotlin Intro Exercise
+Translate the three JS files that implement a Mastermind text app into Kotlin, following the restrictions given.
+Translate Params.js
+First translate Params.js, creating an equivalent Kotlin class, including a read method.   In main, create and read a Params object and print the four Params values. Further restrictions
+    • Use nullable properties, since you cannot know the Params properties until reading them.
+    • Make randRange a computed readonly property, with no backing field (just a get method).  This one property should not be nullable.  Return 0 if maxChar is still null.
+    • Use readline() and split() to analyze the entered response to the prompt.
+    • Unlike the Params.js example, properly handle via appropriate error-reporting and a retry, any noninteger values for the second and third words in the response.  (This will require exception handling)
+    • Use no boolean and/or operators for range checks.  (Read up on "in" and ranges if needed.)
+    • Add one debugging statement, just after the split, that dumps the split string values, one per line, with a number before each.  Do this using forEachIndexed, with a lambda, in a single line.  Example debut output for input F 4 0
+        ? 1. F
+        ? 2. 4
+        ? 3. 0
+Translate Pattern.js
+Now translate the Pattern.js file into an equivalent Kotlin class, with read, randomize, toString and match methods, and a constructor that takes a Params object.  Some restrictions:
+    • No nullable fields
+    • Use an init block in the constructor.
+    • Create a Results data class for the return value of match.  The declaration for Results must be one line.
+

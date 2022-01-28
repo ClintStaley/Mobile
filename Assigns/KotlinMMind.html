@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2022-01-28T12:13:31.740000000"/>
+	<meta name="created" content="00:00:00">
+	<style type="text/css">
+		@page { margin: 0.79in }
+		h1 { margin-bottom: 0.08in; background: transparent }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt }
+		h1.cjk { font-family: "Microsoft YaHei"; font-size: 18pt }
+		h1.ctl { font-family: "Arial"; font-size: 18pt }
+		p { margin-bottom: 0.1in; background: transparent; line-height: 115% }
+		h2 { margin-top: 0.14in; margin-bottom: 0.08in; background: transparent }
+		h2.western { font-family: "Liberation Sans", sans-serif; font-size: 16pt }
+		h2.cjk { font-family: "Microsoft YaHei"; font-size: 16pt }
+		h2.ctl { font-family: "Arial"; font-size: 16pt }
+	</style>
+</head>
+<body lang="en-US" dir="ltr"><h1 class="western">Kotlin Intro
+Exercise</h1>
+<p>Translate the three JS files that implement a Mastermind text app
+into Kotlin, following the restrictions given.</p>
+<h2 class="western">Translate Params.js</h2>
+<p>First translate Params.js, creating an equivalent Kotlin class,
+including a read method. In main, create and read a Params object and
+print the four Params values. Further restrictions</p>
+<ul>
+	<li><p>Use nullable properties, since you cannot know the Params
+	properties until reading them.</p>
+	<li><p>Make randRange a computed readonly property, with no backing
+	field (just a get method). This one property should not be nullable.
+	Return 0 if maxChar is still null.</p>
+	<li><p>Use readline() and split() to analyze the entered response to
+	the prompt.</p>
+	<li><p>Unlike the Params.js example, properly handle via appropriate
+	error-reporting and a retry, any noninteger values for the second
+	and third words in the response. (This will require exception
+	handling)</p>
+	<li><p>Use no boolean and/or operators for range checks. (Read up on
+	&quot;in&quot; and ranges if needed.)</p>
+	<li><p>Add one debugging statement, just after the split, that dumps
+	the split string values, one per line, with a number before each. Do
+	this using forEachIndexed, with a lambda, in a single line. Example
+	debut output for input F 4 0</p>
+	<ul>
+		<li><p>1. F</p>
+		<li><p>2. 4</p>
+		<li><p>3. 0</p>
+	</ul>
+</ul>
+<h2 class="western">Translate Pattern.js</h2>
+<p>Now translate the Pattern.js file into an equivalent Kotlin class,
+with read, randomize, toString and match methods, and a constructor
+that takes a Params object. Some restrictions:</p>
+<ul>
+	<li><p>No nullable fields</p>
+	<li><p>Use an init block in the constructor.</p>
+</ul>
+<ul>
+	<li><p>Create a Results data class for the return value of match.
+	The declaration for Results must be one line.</p>
+	<li><p>In toString (where you must put the code to translate a
+	Pattern into a printable string) no vars, only vals</p>
+	<li><p>No loops anywhere in the code except for the do-while main
+	loop in read.  Use extension functions and lambdas instead</p>
+	<li><p>Use List rather than Array when parsing out the input
+	elements in read</p>
+</ul>
+<p><br/>
+<br/>
+
+</p>
+</body>
+</html>

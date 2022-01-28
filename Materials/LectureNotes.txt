@@ -1,0 +1,10 @@
+1. Syllabus overview
+2. Downloading and installing Android Studio
+3. Going through Android Sample App setup and running
+4. Downloading commandline Kotlin
+5. Reading overview
+6. Language concepts
+   a. Nullability
+   b. Covariance and Contravariance
+7. Overview of MMind.java as basis for first assignment
+
