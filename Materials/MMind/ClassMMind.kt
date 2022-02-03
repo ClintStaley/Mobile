@@ -4,8 +4,16 @@ class Params() {
     var seed: Int? = null
 
     fun read() {
-       var line: String
-
-       line = readLine()
+        while (true) {
+            print("Enter max character, number of characters, and seed");
+            val line = readLine()?.trim()?.split(' ')
     }
+}
+
+
+fun main() {
+   var prms = Params()
+
+   prms.read()
+   println(prms)
 }

@@ -41,25 +41,65 @@ class Params {
    }
 }
 
-data class Results(val exact: Int, val inexact: Int)
+data class Results(var exact: Int, var inexact: Int, var solved: Boolean)
 
 class Pattern(val params: Params) {
     var content: Array<Char>
     var rnd: Random = Random(params.seed ?: 1)
+    val length = params.length ?: 4;
 
     init {
-        content =  Array<Char>(params.length ?: 4)
-         {'A' + rnd.nextInt(params.randRange)}
-        println(content)  
+        content =  Array<Char>(length){'A' + rnd.nextInt(params.randRange)}
     }
 
     fun read() {
-        
+        var letters: List<String>?
 
+        do {
+            var errors = 0;
+            letters = readLine()?.trim()?.uppercase()?.split(' ')
+            if (letters != null) {
+                letters.forEach({letter ->
+                    if (letter.length != 1 || letter < "A"
+                     || letter > "${params.maxChar}") {
+                         println("${letter} is not a valid guess");
+                         errors++
+                    }
+                })
+                if (letters.size != length) {
+                    println("Guess is too ${if (letters.size < length) "short" else "long"}")
+                    errors++;
+                }
+            }
+        } while (letters == null || errors > 0)
+
+        content = Array<Char>(length) {idx: Int -> letters[idx][0]}
     }
 
-    fun match(): Results {
-        return Results(1, 1)
+    fun match(other: Pattern): Results {
+        var rtn = Results(0, 0, false)
+        val usUsed = Array<Boolean>(length) {false}
+        val otherUsed = Array<Boolean>(other.length) {false}
+
+        content.forEachIndexed({idx, value -> 
+            if (other.content[idx] == value) {
+                rtn.exact++
+                usUsed[idx] = true
+                otherUsed[idx] = true
+            }})
+
+        content.forEachIndexed({idx1, value1 -> 
+            other.content.forEachIndexed({idx2, value2 ->
+                if (!usUsed[idx1] && !otherUsed[idx2] && value1 == value2) {
+                    usUsed[idx1] = true 
+                    otherUsed[idx2] = true
+                    rtn.inexact++
+                }
+            })
+        })
+
+        rtn.solved = length == rtn.exact
+        return rtn
     }
 
     override fun toString(): String {
@@ -73,9 +113,16 @@ class Pattern(val params: Params) {
 
 fun main() {
    val params = Params()
-   val model: Pattern
-
    params.read()
-   model = Pattern(params)
-   println(model.toString())
+
+   val model = Pattern(params)
+   println("Model: ${model.toString()}")
+   val guess = Pattern(params)
+
+   do {
+       print("Enter a guess: ");
+       guess.read()
+       val results = model.match(guess)
+       println("${results.exact} exact and ${results.inexact} inexact");
+   } while (!results.solved)
 }
