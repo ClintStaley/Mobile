@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2022-02-04T13:54:40.113496064"/>
+	<style type="text/css">
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; background: transparent; line-height: 115% }
+		h1 { margin-bottom: 0.08in; background: transparent }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt }
+		h1.cjk { font-family: "Microsoft YaHei"; font-size: 18pt }
+		h1.ctl { font-family: "Arial"; font-size: 18pt }
+		pre.cjk { font-family: "DejaVu Sans Mono", monospace }
+		h3.western { font-family: "Albany", sans-serif; font-size: 14pt }
+		h3.cjk { font-family: "Noto Sans CJK SC"; font-size: 14pt }
+		h3.ctl { font-family: "Lohit Devanagari"; font-size: 14pt }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<h1 class="western" align="center">Kotlin Functional Programming</h1>
+<p><font size="2" style="font-size: 11pt">Write an Index.kt file that
+accepts as a commandline argument a text file and produces as output
+an index listing all words (sequences of alphanumeric,
+non-punctuation/whitespace, characters) that appear in the file, in
+sorted order, each followed by the line numbers on which they appear.</font></p>
+<h3 class="western">Example Input/Output</h3>
+<p><font size="2" style="font-size: 11pt">Here's an example input
+file, and corresponding output file.  Note in particular that line
+numbers are 1-based, listed in order, and that and no line appears
+twice for a word, even if the word appears twice on the line.</font></p>
+<pre class="western"><font size="2" style="font-size: 9pt"><b>Input:</b></font>
+<font size="2" style="font-size: 9pt">100 bottles of beer on the wall</font>
+<font size="2" style="font-size: 9pt">100 bottles of   beer!</font>
+<font size="2" style="font-size: 9pt">if one of those bottles should happen to fall</font>
+
+<font size="2" style="font-size: 9pt">99 bottles of beer on the wall</font>
+
+<font size="2" style="font-size: 9pt">99 bottles of beer on the wall, 99 bottles of beer...</font>
+
+<font size="2" style="font-size: 9pt"><b>Output:</b></font>
+<font size="2" style="font-size: 9pt">100: 1, 2</font>
+<font size="2" style="font-size: 9pt">99: 5, 7</font>
+<font size="2" style="font-size: 9pt">beer: 1, 2, 5, 7</font>
+<font size="2" style="font-size: 9pt">bottles: 1, 2, 3, 5, 7</font>
+<font size="2" style="font-size: 9pt">fall: 3</font>
+<font size="2" style="font-size: 9pt">happen: 3</font>
+<font size="2" style="font-size: 9pt">if: 3</font>
+<font size="2" style="font-size: 9pt">of: 1, 2, 3, 5, 7</font>
+<font size="2" style="font-size: 9pt">on: 1, 5, 7</font>
+<font size="2" style="font-size: 9pt">one: 3</font>
+<font size="2" style="font-size: 9pt">should: 3</font>
+<font size="2" style="font-size: 9pt">the: 1, 5, 7</font>
+<font size="2" style="font-size: 9pt">those: 3</font>
+<font size="2" style="font-size: 9pt">to: 3</font>
+<font size="2" style="font-size: 9pt">wall: 1, 5, 7</font>
+</pre><p>
+<font size="2" style="font-size: 11pt">Assuming the input resides in
+file data.txt, and that Index.kt is compiled into Index.jar, this
+command should produce the example output:</font></p>
+<pre class="western">java -jar Index.jar data.txt</pre><h3 class="western">
+Functional Coding Only</h3>
+<p><font size="2" style="font-size: 11pt">And here are the important
+restrictions, all intended to encourage functional thinking:</font></p>
+<ul>
+	<li/>
+<p><font size="2" style="font-size: 11pt">The entire program
+	is in main, which has just one rather long, functional programming
+	statement.  You may have only this one statement, though it will
+	span up to 5 lines.  The model implementation, as a hint, uses these
+	types and functions, among others: File, groupBy, forEach,
+	flatMapIndexed, split, Regex</font></p>
+	<li/>
+<p><font size="2" style="font-size: 11pt">You may not declare
+	any local variables in main.  Parameters in lambdas passed to
+	functions will be needed here and there,  but prefer using &quot;it&quot;
+	when possible.  The model implementation has only two explicit uses
+	of &quot;-&gt;&quot;.</font></p>
+	<li/>
+<p><font size="2" style="font-size: 11pt">There is no need for
+	type qualifiers (no &quot;: String&quot;, etc) except for the main's
+	parameter.  All other variable types can be inferred, and you should
+	let Kotlin do this wherever possible.</font></p>
+</ul>
+</body>
+</html>
