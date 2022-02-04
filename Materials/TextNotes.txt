@@ -1,0 +1,14 @@
+Texts
+
+Yes
+Spath Pro Android With Kotlin Good writing and better overview than Forrester I think.  
+    Spath does a lot of books, including another focused on Kotlin for Android, which is mostly just Kotlin.
+Laurance Excellent conceptual presentation esp for experienced coders
+
+Maybe
+Forrester  Direct, hands-on, how-to
+Moskala  Kotlin-centric, reasonably well-written
+Skeen Kotlin BNR book -- Good Kotlin intro with some Android.  BNR stuff looks good overall, but their Android books are all Java
+
+No
+SommerHoff Panned for being out of date -- don't use
