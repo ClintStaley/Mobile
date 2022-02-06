@@ -1,4 +1,4 @@
 *.class
 *.jar
-**/META_INF/
+META-INF/
 **/Answer/
