@@ -3,7 +3,13 @@ Texts
 Yes
 Spath Pro Android With Kotlin Good writing and better overview than Forrester I think.  
     Spath does a lot of books, including another focused on Kotlin for Android, which is mostly just Kotlin.
+    This one is clear, but high-level concepts about Activities, Services, Intents, etc.  Not a beginner's code walkthrough
+    Probably worth looking at before the ch 4-> of Laurance
+
 Laurance Excellent conceptual presentation esp for experienced coders
+   Chap 1 and 2 on Kotlin are fine.
+   Chaps 3 is OK for overview of design, but quite abstract
+   Chaps 4 -> are solely advanced topics not useful till basic apps are being built
 
 Maybe
 Forrester  Direct, hands-on, how-to
@@ -12,3 +18,16 @@ Skeen Kotlin BNR book -- Good Kotlin intro with some Android.  BNR stuff looks g
 
 No
 SommerHoff Panned for being out of date -- don't use
+   
+
+Online Docs at developer.android.com
+   App Basics are worth reading through
+
+   Courses look like a good tutorial, though video not text
+
+
+   Codelabs look like recorded conference tutorials on specialized topics
+   Guide to App Architecture is another abstract but usable high-level guide.
+   Architecture components are in the same vein as Laurance ch 4-> : geek-level advanced discussions of design and power libraries.
+   Examples may provide some code elements to decipher, but none are general purpose apps a la messaging app
+
