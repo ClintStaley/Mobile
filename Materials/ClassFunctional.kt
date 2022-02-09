@@ -19,7 +19,10 @@ fun main() {
 
    // Big bad reduce to collect sum, min, count all at once.
    data class Stats(val sum: Double, val min: Double, val count: Int)
-
+   
+   println(ptPairs.map{Stats(it.first.distance(it.second),
+    it.first.distance(it.second), 1)}.reduce{stA, stB -> 
+     Stats(stA.sum + stB.sum, min(stA.min, stB.min), stA.count + stB.count)})
 }
    // Array of four randomly set points.  use "to"
 
