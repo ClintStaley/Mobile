@@ -29,16 +29,28 @@
         android:id="@+id/tip_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/service_rating"
+        android:checkedButton="@id/option_15"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@id/service_rating">
 
         <RadioButton
-            android:id="@+id/option_twenty"
+            android:id="@+id/option_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Great (20%)"/>
+            android:text="Great (20%)" />
 
+        <RadioButton
+            android:id="@+id/option_18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good (18%)" />
 
+        <RadioButton
+            android:id="@+id/option_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="So-so (15%)" />
     </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
