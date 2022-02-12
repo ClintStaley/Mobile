@@ -5,10 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-02-11T02:51:24.333000000"/>
-	<meta name="created" content="00:00:00">
-	<meta name="created" content="00:00:00">
-	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2022-02-11T15:24:11.029000000"/>
 	<style type="text/css">
 		@page { margin: 0.79in }
 		h1 { margin-bottom: 0.08in; background: transparent }
@@ -21,11 +18,8 @@
 		h3.ctl { font-family: "Lohit Devanagari" }
 	</style>
 </head>
-<body lang="en-US" dir="ltr"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<meta name="created" content="00:00:00">======= &gt;&gt;&gt;&gt;&gt;&gt;&gt;
-599b711e9e41401b1ca6aa666893057b6cddee28 
-</p>
-<h1 class="western" align="center">Introductory Android</h1>
+<body lang="en-US" dir="ltr"><h1 class="western" align="center">Introductory
+Android</h1>
 <h1 class="western" align="center"><font size="4" style="font-size: 14pt">(Layouts
 and Activities)</font></h1>
 <h3 class="western">Overview</h3>
@@ -41,21 +35,33 @@ overview of Android dev topics. To use them effectively, note:</p>
 	<li><p>The videos are mostly just cute rah-rah, so you can skip
 	those.</p>
 	<li><p>The codelab walkthroughs are where the serious content is.
-	For these, actually write the code, don't just copy-paste it. As you
-	write each line, be sure you understand what it does and why.</p>
-	<li><p>Where feasible, first *guess* what the code should be and
-	then read their suggested code.</p>
-	<li><p>Explore &quot;around&quot; the code, trying different
-	alternatives to see how they work. I'll help with this by assigning
-	required homework explorations surrounding the code in the
-	walkthroughs.</p>
+	For these, actually write the code, don't just copy-paste it.  And:</p>
+	<ul>
+		<li><p>First, read through a portion of the presentation, up to an
+		entire path depending on how good your memory is.</p>
+		<li><p>Then, *set aside the example code and presentation*, and
+		write the code yourself, from memory as much as possible, checking
+		the presentation only as absolutely necessary.</p>
+		<li><p>As you write each line, be sure you understand what it does
+		and why.</p>
+	</ul>
+	<li><p>A canned example like these codelabs is just a starting
+	point.  
+	</p>
+	<ul>
+		<li><p>Do deeper exploration of the classes used, via the API
+		reference and other sources.  Find out how they're organized, what
+		their inheritance relationships are, etc.  Bookmark useful points
+		of the API reference.</p>
+		<li><p>Based on what you learned, explore &quot;around&quot; the
+		code, trying different alternatives to see how they work. 
+		</p>
+		<li><p>I'll help with this by assigning required homework
+		explorations surrounding the code in the walkthroughs, but learn
+		also to do this for yourself.</p>
+	</ul>
 	<li><p>Do the quiz at the end of each path, and please report as
 	part of your homework submission how well you did on it.</p>
-	<li><p>A canned example like these codelabs, however well design
-	point of this question is to do, at least for one case, independent
-	e(E.g. deeper exploration of one or more of the classes used, of
-	Gradle, of other widgets, etc.). 
-	</p>
 </ul>
 <h3 class="western">Unit 2: Layouts: <b>Create XML Layouts for
 Android Pt 1</b></h3>
@@ -63,11 +69,11 @@ Android Pt 1</b></h3>
 <p>1. In what package does EditText reside? In what class is its id
 property defined? 
 </p>
-<p>2. Add an EditView between calculate tip and tip amout, called
+<p>2. Add an EditText between calculate tip and tip amout, called
 notes, having 3 lines. This will require reading docs on EditView,
 and also reading up on the input method type.</p>
 <p>3. Add a 1/8 in gap between the Rate the Service label and the
-Cost of Service EditView. Explain what &quot;dp&quot; stands for, and
+Cost of Service EditText. Explain what &quot;dp&quot; stands for, and
 how you can be sure the gap will be 1/8 in regardless of the device
 DPI value. This will entail research into ConstraintLayout,
 Dimension, etc.</p>
@@ -92,7 +98,7 @@ Note the interplay between Design and Code. (A Split view will help
 with this.).</p>
 <p>8. Investigate android.util.Log, and use it to write a logging
 message announcing the value of cost in calculateTip, when that value
-is nonnull.  (This is how you do a debugging &quot;println&quot; in
+is nonnull. (This is how you do a debugging &quot;println&quot; in
 Android code.)</p>
 <p>9. Do the quiz at the end of the path, and please report as part
 of your homework submission how well you did on it.</p>
