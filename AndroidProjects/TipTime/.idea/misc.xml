@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/clint/Documents/AndroidProjects/TipTime/app/src/main/res/layout/activity_main.xml" value="0.13405797101449277" />
-        <entry key="..\:/Users/clint/Documents/Mobile/AndroidProjects/TipTime/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.578125" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.578125" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5417085427135678" />
       </map>
     </option>
   </component>
