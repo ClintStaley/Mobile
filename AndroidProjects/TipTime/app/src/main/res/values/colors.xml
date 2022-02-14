@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="prin_blue">#0091ea</color>
+    <color name="prin_blue_light">#64c1ff</color>
+    <color name="prin_blue_dark">#0064b7</color>
+    <color name="prin_gold">#ffeb3b</color>
+    <color name="prin_gold_light">#ffff72</color>
+    <color name="prin_gold_dark">#c8b900</color>
+    <color name="black_text">#000000</color>
+    <color name="navy_text">#01579b</color>
 </resources>

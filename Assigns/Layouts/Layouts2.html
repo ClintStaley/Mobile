@@ -5,11 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-02-11T15:23:54.153000000"/>
-	<meta name="created" content="00:00:00">
-	<meta name="created" content="00:00:00">
-	<meta name="created" content="00:00:00">
-	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2022-02-14T02:22:10.789000000"/>
 	<style type="text/css">
 		@page { margin: 0.79in }
 		h1 { margin-bottom: 0.08in; background: transparent }
@@ -22,9 +18,7 @@
 		h3.ctl { font-family: "Lohit Devanagari" }
 	</style>
 </head>
-<body lang="en-US" dir="ltr"><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<meta name="created" content="00:00:00">======= &gt;&gt;&gt;&gt;&gt;&gt;&gt;
-599b711e9e41401b1ca6aa666893057b6cddee28 
+<body lang="en-US" dir="ltr"><p> 
 </p>
 <h1 class="western" align="center">Introductory Android</h1>
 <h1 class="western" align="center"><font size="4" style="font-size: 14pt">(Layouts
@@ -42,7 +36,7 @@ overview of Android dev topics. To use them effectively, note:</p>
 	<li><p>The videos are mostly just cute rah-rah, so you can skip
 	those.</p>
 	<li><p>The codelab walkthroughs are where the serious content is.
-	For these, actually write the code, don't just copy-paste it.  And:</p>
+	For these, actually write the code, don't just copy-paste it. And:</p>
 	<ul>
 		<li><p>First, read through a portion of the presentation, up to an
 		entire path depending on how good your memory is.</p>
@@ -53,13 +47,13 @@ overview of Android dev topics. To use them effectively, note:</p>
 		and why.</p>
 	</ul>
 	<li><p>A canned example like these codelabs is just a starting
-	point.  
+	point. 
 	</p>
 	<ul>
 		<li><p>Do deeper exploration of the classes used, via the API
-		reference and other sources.  Find out how they're organized, what
-		their inheritance relationships are, etc.  Bookmark useful points
-		of the API reference.</p>
+		reference and other sources. Find out how they're organized, what
+		their inheritance relationships are, etc. Bookmark useful points of
+		the API reference.</p>
 		<li><p>Based on what you learned, explore &quot;around&quot; the
 		code, trying different alternatives to see how they work. 
 		</p>
@@ -67,13 +61,96 @@ overview of Android dev topics. To use them effectively, note:</p>
 		explorations surrounding the code in the walkthroughs, but learn
 		also to do this for yourself.</p>
 	</ul>
-	<li><p>Do the quiz at the end of each path, and please report as
-	part of your homework submission how well you did on it.</p>
 </ul>
 <h3 class="western">Unit 2: Layouts: <b>Create XML Layouts for
-Android Pt 1</b></h3>
-<p>Do this path, and answer the following questions as you do:</p>
-<p>1. I</p>
+Android Pt </b><b>2</b></h3>
+<p>Much of this path centers on what is sometimes called &quot;paint&quot;
+-- the artistic and aesthetic tuning of a UI's colors, fonts, icons,
+etc.  It's easy to dismiss this as window dressing, but it's not. 
+People like to use good-looking UIs, and industrial design and
+aesthetics are an interesting area, with significant technical
+elements.</p>
+<ol>
+	<li><p>For the first step, use the concepts of theme and style to
+	set up a version of TipTime that has Principia blue and gold
+	coloring for its primary and secondary colors.  And, arrange the
+	code so that you can, by changing just one word in the source,
+	switch the app (after rebuilding and restarting) between Prin colors
+	and the original purple-ish scheme.   Unsurprisingly, this will
+	involve some independent research on how the magic of themes works,
+	and in particular how your layout &quot;knows&quot; what theme to
+	apply.</p>
+	<li><p>Build for a recent Android version and be sure you can also
+	switch, while the app is running, between day and night themes, with
+	appropriate shifts in coloring, in both original and Prin themes. 
+	Keep an older version around as well.</p>
+	<li><p>After #1 and #2 are working, so some research on styles vs
+	themes, and be sure you understand both.  Note for instance, that
+	the style of the main button in TipTime is
+	Widget.MaterialComponents.Button.  Consider how this button &quot;knows&quot;
+	to use the primary color as its background.  Using this, arrange
+	code so that the button instead uses the theme secondary color for
+	its background, and so that switching themes automatically, <i>without
+	altering the button configuration</i><span style="font-style: normal">,
+	causes the button to show whichever secondary color is appropriate
+	for the theme.</span></p>
+	<li><p>If you accomplished #3 by altering one of the color
+	properties of the button, that's fine.  But now, if you didn't
+	already, leave the color properties as they originally were, and
+	instead alter *only* the style of the button, giving it a new style
+	that is exactly like Widget.MaterialComponents.Button in all
+	respects except that it uses the secondary color for background. 
+	(Note that this is how the Widget.MaterialComponents.Button style
+	itself ties theme elements to specific aspects of the widget.)</p>
+	<li><p>If you wanted to set a different theme for two different
+	layouts in an application (e.g. in two different activities) is this
+	allowed, and how?</p>
+	<li><p>&quot;Mipmapping&quot; is a much larger concept than just the
+	idea presented in the path.  Look it up, and briefly describe how
+	it's used in other areas.  For instance, how might mipmapping be
+	useful even if the object in question is not changing its physical
+	size?  Why is mipmapping useful, as opposed to just having one image
+	and computationally scaling it?  Can you do mipmaps with just a
+	single image file?  How does this work?</p>
+	<li><p>Which of the two major ways Android represents icons is a
+	form of SVG?  Why?  Which of the two is your Android device (or
+	emulator) using?  Why?</p>
+	<li><p>After doing the path exercise to change the tiptime icon to a
+	white bell on green background, redo it as a gold bell on a shaded
+	blue background, and properly regenerate all assets needed.  Do this
+	by selected hand-modification of the XML assets for the
+	white-on-green; it doesn't take much.  Be sure this works both on
+	older Android versions (pre-26) and newer ones.</p>
+	<li><p>After doing the switch to Material for the EditText and
+	Switch, do it also for the Button, replacing it with a material
+	&quot;floating action button&quot;.  Maintain the customized style,
+	but be sure you derive from the right base style now that you've
+	changed the button.</p>
+	<li><p>When adding icons, use a dollar-sign icon for the Cost of
+	Service label.  Be sure the 3-line editText we added is also
+	indented like the other components.</p>
+	<li><p>Do the Practice Exercise from Polished User Experience to
+	dress up your unit converter application</p>
+	<li><p>Don't download the ZIP in the testing section.  Instead, just
+	use the starting code already available in your TipTime default
+	project under androidTest.  Add a number of other tests to the one
+	example given:</p>
+	<ol>
+		<li><p>Test the behavior with empty cost, followed by good cost,
+		followed again by empty cost.  (Tip result should clear on empty
+		cost)</p>
+		<li><p>Test the behavior of the round-up switch, including
+		automatic reset when a tip is computed (but not just because
+		Calculate Tip is pressed)</p>
+		<li><p>Test bad-number values in the cost, ensuring no tip is
+		computed, and the bad value is cleared.</p>
+		<li><p>Add at least another test of your own.</p>
+	</ol>
+</ol>
+<p><br/>
+<br/>
+
+</p>
 <h3 class="western">Submission</h3>
 <p>Submit three files:</p>
 <p>1. Questions.pdf/docx/html with answers to the noncoding
