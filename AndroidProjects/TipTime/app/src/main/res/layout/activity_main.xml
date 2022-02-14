@@ -7,14 +7,31 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
+    <ImageView
+        android:id="@+id/ic_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_money"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/service_cost"
+        app:layout_constraintBottom_toBottomOf="@id/service_cost"
+    />
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/service_cost"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:hint="@string/cost_of_service"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/ic_money"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/service_cost_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+        />
+    </com.google.android.material.textfield.TextInputLayout>4
 
     <TextView
         android:id="@+id/service_rating"
@@ -22,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/rate_the_service"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/service_cost"
         app:layout_constraintTop_toBottomOf="@id/service_cost"/>
 
     <RadioGroup
@@ -31,7 +48,7 @@
         android:layout_height="wrap_content"
         android:checkedButton="@id/option_15"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/service_cost"
         app:layout_constraintTop_toBottomOf="@id/service_rating">
 
         <RadioButton
@@ -53,23 +70,34 @@
             android:text="@string/so_so_15" />
     </RadioGroup>
 
-    <Switch
+    <ImageView
+        android:id="@+id/ic_round_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_round_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tip_round"
+        app:layout_constraintBottom_toBottomOf="@id/tip_round"
+    />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/tip_round"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:checked="true"
         android:text="@string/round_up_the_tip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tip_options" />
+        app:layout_constraintStart_toEndOf="@id/ic_round_up"
+        app:layout_constraintTop_toBottomOf="@id/tip_options"/>
 
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/calculate_tip"
+        style="@style/TipTime.SecondaryButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/calculate_tip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/service_cost"
         app:layout_constraintTop_toBottomOf="@id/tip_round" />
 
     <EditText
@@ -79,13 +107,14 @@
         android:inputType="textMultiLine"
         android:lines="3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/service_cost"
         app:layout_constraintTop_toBottomOf="@id/calculate_tip" />
 
     <TextView
         android:id="@+id/tip_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/tip_amount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/notes" />
