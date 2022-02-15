@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.tiptime.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateTip() {
-        val cost = binding.serviceCostEt.text.toString().toDoubleOrNull()
+        // val cost = binding.serviceCostEt.text.toString().toDoubleOrNull()
+        val cost = findViewById<TextInputEditText>(R.id.service_cost_et).text.toString()
+         .toDoubleOrNull()
         val tipPct = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_20 -> 0.20
             R.id.option_18 -> 0.18

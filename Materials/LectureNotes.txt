@@ -8,3 +8,35 @@
    b. Covariance and Contravariance
 7. Overview of MMind.java as basis for first assignment
 
+
+Second Layout Exercise
+1. Idea of "styles" spans UI
+   a. Importance of UI look/feel.
+   b. Maintenance challenge
+   c. CSS in webdev
+   d. Styles in Android
+   e. Colors, fonts, text sizes, margins
+   f. Additional idea of "themes" -- "metaproperties"
+
+2. Representation of icons
+   a. Pixel density variations
+   b. PNG/JPG vs vector-based
+   c. XML files for Android
+
+3. Material Components
+   a. Libraries of classes for components
+   b. Endless treadmill of "this is better"
+   c. AWT -> Swing -> JavaFX
+   d. Native HTML -> JQueryUI -> Angular/React/Vue
+   e. android.widget -> android.material
+   f. Only strategy that works is to know what they all have in common
+      i. Means of creating and configuring UI elements via class/object
+      ii. Event handlers
+      iii. Means of finding UI elements by ID if layout is via config file
+
+4. Testing
+   a. Hard to do with UI by emulating actual mouse-presses, keystrokes, etc.  Fragile
+   b. Tests that run the UI objects, however, are robust and stable.
+   c. Value of automated tests
+   d. TDD
+
