@@ -54,8 +54,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/rate_the_service"
+            style="@style/Widget.TipTime.TextView"
             app:layout_constraintStart_toStartOf="@id/service_cost"
-            app:layout_constraintTop_toBottomOf="@id/service_cost"/>
+            app:layout_constraintTop_toBottomOf="@id/service_cost" />
 
         <RadioGroup
             android:id="@+id/tip_options"
@@ -70,19 +71,22 @@
                 android:id="@+id/option_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/great_20" />
+                android:text="@string/great_20"
+                style="@style/Widget.TipTime.CompoundButton.RadioButton" />
 
             <RadioButton
                 android:id="@+id/option_18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/good_18" />
+                android:text="@string/good_18"
+                style="@style/Widget.TipTime.CompoundButton.RadioButton" />
 
             <RadioButton
                 android:id="@+id/option_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/so_so_15" />
+                android:text="@string/so_so_15"
+                style="@style/Widget.TipTime.CompoundButton.RadioButton" />
         </RadioGroup>
 
         <ImageView
@@ -101,9 +105,10 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/round_up_the_tip"
+            style="@style/Widget.TipTime.CompoundButton.Switch"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ic_round_up"
-            app:layout_constraintTop_toBottomOf="@id/tip_options"/>
+            app:layout_constraintTop_toBottomOf="@id/tip_options" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/calculate_tip"
@@ -131,6 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/tip_amount"
+            style="@style/Widget.TipTime.TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/notes" />
     </androidx.constraintlayout.widget.ConstraintLayout>
