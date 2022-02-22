@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.example.tiptime.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
+import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,10 +30,10 @@ class MainActivity : AppCompatActivity() {
         val roundUp = binding.tipRound.isChecked
 
         if (cost != null) {
-            Log.e("com.example.tiptime","Cost is $cost")
             val tip = if (roundUp) kotlin.math.ceil(cost * tipPct) else cost * tipPct
+            val strTip = NumberFormat.getCurrencyInstance().format(tip)
 
-            binding.tipResult.text = "Tip: $tip"
+            binding.tipResult.text = getString(R.string.tip_amount, strTip)
             binding.tipRound.setChecked(false)
         }
         else
