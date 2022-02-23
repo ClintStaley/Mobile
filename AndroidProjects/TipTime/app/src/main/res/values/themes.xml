@@ -23,6 +23,8 @@
         <item name="colorSecondary">@color/prin_gold</item>
         <item name="colorSecondaryVariant">@color/prin_gold_dark</item>
         <item name="colorOnSecondary">@color/navy_text</item>
+        <item name="colorControlNormal">@color/prin_blue</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

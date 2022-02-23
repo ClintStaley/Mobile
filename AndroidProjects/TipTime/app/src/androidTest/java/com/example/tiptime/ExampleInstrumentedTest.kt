@@ -15,10 +15,13 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+    @get:Rule()
+    val activity = ActivityScenarioRule(MainActivity::class.java)
+
     @Test
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.tiptime", appContext.packageName)
+        assertEquals("com.example.tiptime", appContext.packageName
     }
 }
