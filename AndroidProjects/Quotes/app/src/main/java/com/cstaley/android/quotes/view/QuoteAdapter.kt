@@ -2,6 +2,7 @@ package com.cstaley.android.quotes.view
 
 import android.content.Context
 import android.graphics.Typeface.*
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,10 +23,10 @@ class QuoteAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuoteViewHolder {
-        // create a new view
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.quote_layout, parent, false)
+         .inflate(R.layout.quote_layout, parent, false)
 
+        // Log.e("tester", "ocvh")
         return QuoteViewHolder(adapterLayout)
     }
 
