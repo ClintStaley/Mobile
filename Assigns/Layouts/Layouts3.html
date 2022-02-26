@@ -5,7 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-02-25T02:45:47.097000000"/>
+	<meta name="changed" content="2022-02-25T13:57:12.063000000"/>
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
@@ -69,22 +69,8 @@ overview of Android dev topics. To use them effectively, note:</p>
 <h3 class="western">Unit 3: Layouts: <font face="Albany, sans-serif"><font size="4" style="font-size: 14pt"><b>Display
 a Scrollable List</b></font></font></h3>
 <p>Much of this path centers on the sophisticated OO design
-surrounding RecyclerViews</p>
+surrounding RecyclerViews.</p>
 <ol>
-	<li><p>Review the developer.android.com | Guides | App Resources |
-	Introduction and Localization.</p>
-</ol>
-<ul>
-	<li><p>Name at least 10 distinct properties of R, e.g. R.id,
-	R.color, etc.  How are such properties consistently referred to
-	within layout and other resource files?</p>
-	<li><p>What tool/program generates the R class?  What file does it
-	produce?  What kind of information does it add to that file? 
-	</p>
-	<li><p>What's an APK?  Are resources like layouts, colors, etc. held
-	in readable form in an APK?</p>
-</ul>
-<ol start="2">
 	<li><p>Adjust names and some functionality as you write the code, so
 	as not to just cut/paste what's there.  In particular</p>
 </ol>
@@ -108,10 +94,18 @@ surrounding RecyclerViews</p>
 		alternates between normal and bold.</p>
 	</ul>
 </ul>
-<ol start="3">
+<p><img src="QuotesImage.png" name="Image1" align="left" width="543" height="1152">
+  <br clear="left"/>
+</img>
+<br/>
+<br/>
+
+</p>
+<ol start="2">
 	<li><p>Experiment by reversing the two args to Quote when supplying
 	an image and a string.   The IDE should note the error even though
-	both args are strings.  How does it do this?</p>
+	both args are strings.  How does it do this?  What do you think is
+	the retention property of the relevant annotations?  Why?</p>
 	<li><p>Use logging to instrument onCreateViewHolder and
 	onBindViewHolder, so you can see how often they are called.  Is
 	there a difference in how many times each is called?   Try doubling
@@ -119,16 +113,66 @@ surrounding RecyclerViews</p>
 	already have to make the data array twice as long.  What happens to
 	the number of calls of onCreateViewHolder and onBindViewHolder then?
 	 Why is this?</p>
-	<li><p></p>
+	<li><p>Review the developer.android.com | Guides | App Resources |
+	Introduction and Localization.</p>
 </ol>
+<ul>
+	<ul>
+		<li><p>Name at least 10 distinct properties of R, e.g. R.id,
+		R.color, etc.  How are such properties consistently referred to
+		within layout and other resource files?</p>
+		<li><p>What tool/program generates the R class?  What file does it
+		produce?  What kind of information does it add to that file? 
+		</p>
+		<li><p>What's an APK?  Are resources like layouts, colors, etc.
+		held in readable form in an APK?</p>
+		<li><p>Add a Spanish version of the quotes, &quot;translating&quot;
+		by the simple expedient of adding [ES} before each English quote. 
+		Demonstrate that your app changes to the &quot;Spanish&quot;
+		version when you switch its default locale to ES.</p>
+	</ul>
+</ul>
+<ol start="5">
+	<li><p>Learn a bit about KClass, KFunction, Annotation and related
+	ideas.  Starting with the code below, add one class declaration, and
+	fill in the println line using Kotlin reflection and annotations, so
+	that whatever word appears in the quotes (e.g. &quot;Hiya&quot;)
+	gets printed by the prinln.  Demonstrate this by adjusting <i>only</i><span style="font-style: normal">
+	that word, recompiling, and showing that the program prints the new
+	word.  </span>
+	</p>
+</ol>
+<p style="margin-left: 1in; margin-bottom: 0in; background: transparent; line-height: 100%">
+<font color="#000000"><font face="Lucida Console, serif"><font size="2" style="font-size: 11pt">@Note(&quot;Hiya&quot;)</font></font></font></p>
+<p style="margin-left: 1in; margin-bottom: 0in; background: transparent; line-height: 100%">
+<font color="#000000"><font face="Lucida Console, serif"><font size="2" style="font-size: 11pt">fun
+main() {</font></font></font></p>
+<p style="margin-left: 1in; margin-bottom: 0in; background: transparent; line-height: 100%">
+<font color="#000000">   <font face="Lucida Console, serif"><font size="2" style="font-size: 11pt">println(</font></font></font><font color="#000000"><font face="Lucida Console, serif"><font size="2" style="font-size: 11pt">
+                                     </font></font></font><font color="#000000"><font face="Lucida Console, serif"><font size="2" style="font-size: 11pt">)</font></font></font></p>
+<p style="margin-left: 1in; margin-bottom: 0in; background: transparent; line-height: 100%">
+<font color="#000000"><font face="Lucida Console, serif"><font size="2" style="font-size: 11pt">}</font></font></font></p>
+<p style="margin-left: 1in; margin-bottom: 0in; background: transparent; line-height: 100%">
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; background: transparent; line-height: 100%">
+<br/>
+
+</p>
 <h3 class="western">Submission</h3>
-<p>Submit three files:</p>
-<p>1. Questions.pdf/docx/html with answers to the noncoding
-questions.</p>
-<p>2. MainActivity.kt and activity_main.xml, for your answers for 6
-and 3, after demoing to me</p>
-<p>3. UnitConverter.kt and unit_converter.xml, for your answers for
-#7, after demoing for me</p>
+<p>First, demo your work for me, then submit three files:</p>
+<ol>
+	<li><p>Questions.pdf/docx/html with answers to the noncoding
+	questions.</p>
+	<li><p>Snapshot of your original quotes app before the mods under
+	point 2</p>
+	<li><p>Two Tags added to your Git Repo (which should be shared with
+	me now): QuotesOriginal and QuotesFinal, with the latter including
+	the work under points 1 and 4.</p>
+	<li><p>UnitConverter.kt and unit_converter.xml, for your answers for
+	#7, after demoing for me</p>
+</ol>
 <p><br/>
 <br/>
 

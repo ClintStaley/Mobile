@@ -40,3 +40,6 @@ Second Layout Exercise
    c. Value of automated tests
    d. TDD
 
+5. Hamcrest concepts
+   a. Matcher abstracts checking
+
