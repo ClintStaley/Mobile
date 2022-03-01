@@ -16,7 +16,12 @@
 package com.example.wordsapp
 
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wordsapp.databinding.ActivityMainBinding
@@ -26,6 +31,12 @@ import com.example.wordsapp.databinding.ActivityMainBinding
  */
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
+    private var layoutSwitcher : MenuItem? = null
+    private var linearLayout = true
+
+    companion object {
+        const val gridWidth = 4
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +45,39 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         recyclerView = binding.recyclerView
-        // Sets the LinearLayoutManager of the recyclerview
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        configRecycler();
         recyclerView.adapter = LetterAdapter()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        layoutSwitcher = menu?.findItem(R.id.layout_switcher)
+        setSwitcherIcon()
+
+        return true;
+    }
+
+    fun setSwitcherIcon() : Unit {
+        layoutSwitcher?.icon = getDrawable(
+         if (linearLayout) R.drawable.ic_view_grid else R.drawable.ic_view_linear)
+    }
+
+    fun configRecycler() : Unit {
+        recyclerView.layoutManager = if (linearLayout)
+            LinearLayoutManager(this)
+        else
+            GridLayoutManager(this, gridWidth)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.layout_switcher) {
+            linearLayout = !linearLayout
+            configRecycler()
+            setSwitcherIcon()
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 }

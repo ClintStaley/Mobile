@@ -16,6 +16,8 @@
 package com.example.wordsapp
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -25,10 +27,16 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 
+val clickHandler = {view: View ->
+    val intent = Intent(Intent.ACTION_VIEW,
+     Uri.parse("${DetailActivity.QUERY}${(view as Button).text}"))
+    view.context.startActivity(intent)
+}
+
 /**
  * Adapter for the [RecyclerView] in [DetailActivity].
  */
-class WordAdapter(private val letterId: String, context: Context) :
+class WordAdapter(private val letterId: String, val context: Context) :
     RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
 
     private val filteredWords: List<String>
@@ -60,8 +68,7 @@ class WordAdapter(private val letterId: String, context: Context) :
      * Creates new views with R.layout.item_view as its template
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-        val layout = LayoutInflater
-            .from(parent.context)
+        val layout = LayoutInflater.from(context)
             .inflate(R.layout.item_view, parent, false)
 
         // Setup custom accessibility delegate to set the text read
@@ -74,15 +81,10 @@ class WordAdapter(private val letterId: String, context: Context) :
      * Replaces the content of an existing view with new data
      */
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-
-        val item = filteredWords[position]
-        // Needed to call startActivity
-        val context = holder.view.context
-
-        // Set the text of the WordViewHolder
-        holder.button.text = item
-
+        holder.button.text = filteredWords[position]
+        holder.button.setOnClickListener(clickHandler)
     }
+
     // Setup custom accessibility delegate to set the text read with
     // an accessibility service
     companion object Accessibility : View.AccessibilityDelegate() {
