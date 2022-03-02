@@ -33,7 +33,7 @@ val letterClickHandler = {view: View ->
 }
 
 /**
- * Adapter for the [RecyclerView] in [MainActivity].
+ * Adapter for the [RecyclerView] in [DetailActivity].
  */
 class LetterAdapter :
     RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
@@ -41,9 +41,6 @@ class LetterAdapter :
     // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
     private val list = ('A').rangeTo('Z').toList()
 
-    /**
-     * Provides a reference for the views needed to display items in your list.
-     */
     class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val button = view.findViewById<Button>(R.id.button_item)
 
@@ -56,33 +53,17 @@ class LetterAdapter :
         return list.size
     }
 
-    /**
-     * Creates new views with R.layout.item_view as its template
-     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
-        val layout = LayoutInflater
-                .from(parent.context)
-                .inflate(R.layout.letter_view, parent, false)
+        val layout = LayoutInflater.from(parent.context)
+            .inflate(R.layout.letter_view, parent, false)
+
         // Setup custom accessibility delegate to set the text read
         layout.accessibilityDelegate = Accessibility
         return LetterViewHolder(layout)
     }
 
-    /**
-     * Replaces the content of an existing view with new data
-     */
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
         holder.button.text = list.get(position).toString()
-
-        /* Prior work
-            {view ->
-            val intent = Intent(view.context, DetailActivity::class.java)
-
-            intent.putExtra(DetailActivity.LETTER, (view as Button).text.toString())
-            // NOPE intent.extras?.putCharSequence(DetailActivity.LETTER, item.toString())
-
-            view.context.startActivity(intent)
-        }*/
     }
 
     // Setup custom accessibility delegate to set the text read with
