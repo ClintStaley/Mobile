@@ -26,7 +26,8 @@ class DetailActivity : AppCompatActivity() {
 
     companion object {
         const val LETTER = "letter"
-        const val QUERY = "https://www.google.com/search?q="
+        const val GGL_QUERY = "https://www.google.com/search?q="
+        const val DDG_QUERY = "https://www.duckduckgo.com/search?q="
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -25,7 +25,7 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 
-val wordClickHandler = {view: View ->
+val letterClickHandler = {view: View ->
     val intent = Intent(view.context, DetailActivity::class.java)
 
     intent.putExtra(DetailActivity.LETTER, (view as Button).text.toString())
@@ -46,6 +46,10 @@ class LetterAdapter :
      */
     class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val button = view.findViewById<Button>(R.id.button_item)
+
+        init {
+            button.setOnClickListener(letterClickHandler)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -58,7 +62,7 @@ class LetterAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
         val layout = LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.item_view, parent, false)
+                .inflate(R.layout.letter_view, parent, false)
         // Setup custom accessibility delegate to set the text read
         layout.accessibilityDelegate = Accessibility
         return LetterViewHolder(layout)
@@ -69,7 +73,6 @@ class LetterAdapter :
      */
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
         holder.button.text = list.get(position).toString()
-        holder.button.setOnClickListener(wordClickHandler)
 
         /* Prior work
             {view ->
