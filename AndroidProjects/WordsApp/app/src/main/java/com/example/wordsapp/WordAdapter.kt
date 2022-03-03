@@ -24,12 +24,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 
 val clickHandler = {view: View ->
-    val intent = Intent(Intent.ACTION_VIEW,
-     Uri.parse("${DetailActivity.QUERY}${(view as Button).text}"))
+    val query = if ((view as Button).text == "Google")
+     DetailActivity.GGL_QUERY else DetailActivity.DDG_QUERY
+    val text = view.getTag() as String
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("${query}${text}"))
+
     view.context.startActivity(intent)
 }
 
@@ -59,7 +63,9 @@ class WordAdapter(private val letterId: String, val context: Context) :
     }
 
     class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val button = view.findViewById<Button>(R.id.button_item)
+        val wordView = view.findViewById<TextView>(R.id.word)
+        val gglBtn = view.findViewById<Button>(R.id.google_search)
+        val ddgBtn = view.findViewById<Button>(R.id.ddg_search)
     }
 
     override fun getItemCount(): Int = filteredWords.size
@@ -69,7 +75,7 @@ class WordAdapter(private val letterId: String, val context: Context) :
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val layout = LayoutInflater.from(context)
-            .inflate(R.layout.item_view, parent, false)
+            .inflate(R.layout.word_view, parent, false)
 
         // Setup custom accessibility delegate to set the text read
         layout.accessibilityDelegate = Accessibility
@@ -78,8 +84,13 @@ class WordAdapter(private val letterId: String, val context: Context) :
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-        holder.button.text = filteredWords[position]
-        holder.button.setOnClickListener(clickHandler)
+        holder.wordView.text = filteredWords[position]
+
+        holder.gglBtn.setTag(holder.wordView.text)
+        holder.gglBtn.setOnClickListener(clickHandler)
+
+        holder.ddgBtn.setTag(holder.wordView.text)
+        holder.ddgBtn.setOnClickListener(clickHandler)
     }
 
     // Setup custom accessibility delegate to set the text read with
