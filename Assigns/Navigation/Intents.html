@@ -5,7 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-03-01T22:02:06.296000000"/>
+	<meta name="changed" content="2022-03-02T15:53:21.476000000"/>
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
@@ -58,38 +58,47 @@ Android</h1>
 </pre>
 <ol start="5">
 	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
-	LetterAdapter.onBindViewHolder implementation can be shortened to
-	just these two lines if you supply an appropriate wordClickListener
-	elsewhere in the file.    Do this, supplying the necessary
-	clickHandler.  </span></span>
-	</p>
+	WordAdapter.onBindViewHolder can be shorteted to these two lines. 
+	Add a click handler to make this work.</span></span></p>
 </ol>
-<pre class="western" style="margin-left: 0.79in"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-variant: normal"><span style="font-style: normal">holder.</span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">button</span></font></span><span style="font-variant: normal"><span style="font-style: normal">.</span></span><span style="font-variant: normal"><font color="#871094"><i>text </i></font></span><span style="font-variant: normal"><span style="font-style: normal">= </span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">list</span></font></span><span style="font-variant: normal"><span style="font-style: normal">.get(position).toString()</span></span></font></font></font>
-<font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt">holder.</font></font></font><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt">button</font></font></font><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt">.setOnClickListener(</font></font></font><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><i>wordClickHandler</i></font></font></font><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt">)</font></font></font></pre>
+<pre class="western" style="margin-left: 0.79in"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-variant: normal"><span style="font-style: normal">holder.</span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">button</span></font></span><span style="font-variant: normal"><span style="font-style: normal">.</span></span><span style="font-variant: normal"><font color="#871094"><i>text </i></font></span><span style="font-variant: normal"><span style="font-style: normal">= </span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">filteredWords</span></font></span><span style="font-variant: normal"><span style="font-style: normal">[position]</span></span></font></font></font></pre><p style="margin-left: 0.79in">
+<span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">holder.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">button</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.setOnClickListener(</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><i>clickHandler</i></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">)</span></font></font></font></span></p>
 <ol start="6">
 	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
-	WordAdapter.onBindViewHolder can similarly be shorteted to these two
-	lines.  Add a click handler to make this work.</span></span></p>
+	LetterAdapter.onBindViewHolder implementation can be shortened to
+	just this one line if you supply an appropriate letterClickListener
+	elsewhere in the file and also move the setOnClickListener call so
+	it's done just once per ViewHolder.    Do this</span></span></p>
 </ol>
-<pre class="western" style="margin-left: 0.79in"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-variant: normal"><span style="font-style: normal">holder.</span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">button</span></font></span><span style="font-variant: normal"><span style="font-style: normal">.</span></span><span style="font-variant: normal"><font color="#871094"><i>text </i></font></span><span style="font-variant: normal"><span style="font-style: normal">= </span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">filteredWords</span></font></span><span style="font-variant: normal"><span style="font-style: normal">[position]</span></span></font></font></font>
-<font size="2" style="font-size: 11pt"><font color="#080808"><font face="JetBrains Mono, monospace">holder.</font></font><font color="#871094"><font face="JetBrains Mono, monospace">button</font></font><font color="#080808"><font face="JetBrains Mono, monospace">.setOnClickListener(</font></font><font color="#871094"><font face="JetBrains Mono, monospace"><i>clickHandler</i></font></font><font color="#080808"><font face="JetBrains Mono, monospace">)</font></font></font></pre>
-<ol start="7">
-	<li><p style="font-variant: normal; font-style: normal">Spaces in
-	requests; duckduckgo 
-	</p>
-	<li><p style="font-variant: normal; font-style: normal">Don't
-	random-sample the words. Scroll.</p>
-	<li><p style="font-variant: normal; font-style: normal">Set up a
-	single, separate click handler function for BindViewHolder..</p>
-	<li><p style="font-variant: normal; font-style: normal">Eliminate
-	icon from menu original XML?</p>
+<pre class="western" style="margin-left: 0.79in"><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">holder.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">button</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><i>text </i></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">= </span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">list</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.get(position).toString()</span></font></font></font></span></pre>
+<ol start="6">
+	<p></p>
+	<li><p style="font-variant: normal; font-style: normal">Is the
+	initial android:icon value in main_menu.xml actually needed?  Test
+	to see if your answer is correct.  Why is this so?</p>
+	<li><p style="font-variant: normal; font-style: normal">Adjust the
+	buttons for word-lookup so that they comprise a TextView giving the
+	word or phrase, followed by Google and DDG buttons that conduct a
+	search on Google or DuckDuckGo for the word/phrase.  Also, allow
+	multiword phrases, and properly frame the search request to include
+	spaces between words.</p>
+	<li><p style="font-variant: normal; font-style: normal">The current
+	implementation randomly chooses a few words from all that begin with
+	the letter in question.  Instead, show all words beginning with the
+	letter, and let the RecyclerView scroll through them.  Be sure the
+	event handling for Google and DDG works even when scrolled to the
+	bottom.</p>
 </ol>
+<p style="font-variant: normal; font-style: normal"><br/>
+<br/>
+
+</p>
 <h3 class="western">Submission</h3>
-<p>First, demo your work for me, then submit three files:</p>
+<p>First, demo your work for me, then:</p>
 <ol>
-	<li><p>Questions.pdf/docx/html with answers to the noncoding
-	questions.</p>
-	<li><p></p>
+	<li><p>Submit a Questions.pdf/docx/html with answers to the
+	noncoding questions above</p>
+	<li><p>Tag labelled Navigation1 in your git repo.</p>
 </ol>
 <p><br/>
 <br/>

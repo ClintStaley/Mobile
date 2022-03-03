@@ -77,9 +77,6 @@ class WordAdapter(private val letterId: String, val context: Context) :
         return WordViewHolder(layout)
     }
 
-    /**
-     * Replaces the content of an existing view with new data
-     */
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         holder.button.text = filteredWords[position]
         holder.button.setOnClickListener(clickHandler)
