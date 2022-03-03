@@ -51,6 +51,8 @@
         <item>contact</item>
         <item>copyright</item>
         <item>creative</item>
+        <item>cooking</item>
+        <item>CookiNg</item>
         <item>data</item>
         <item>day</item>
         <item>details</item>
@@ -266,5 +268,23 @@
         <item>zone</item>
         <item>zoo</item>
         <item>zouk</item>
+        <item>changes</item>
+        <item>chipmunk</item>
+        <item>challenge</item>
+        <item>chatterbox</item>
+        <item>channel</item>
+        <item>charter</item>
+        <item>chapstick</item>
+        <item>charbroil</item>
+        <item>chapter</item>
+        <item>chipper</item>
+        <item>chunky</item>
+        <item>champion</item>
+        <item>claptrap</item>
+        <item>core</item>
+        <item>capable</item>
+        <item>catapult</item>
+        <item>currency</item>
+        <item>culpable</item>
     </string-array>
 </resources>

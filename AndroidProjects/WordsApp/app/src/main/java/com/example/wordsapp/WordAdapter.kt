@@ -49,17 +49,8 @@ class WordAdapter(private val letterId: String, val context: Context) :
         // Retrieve the list of words from res/values/arrays.xml
         val words = context.resources.getStringArray(R.array.words).toList()
 
-        filteredWords = words
-            // Returns items in a collection if the conditional clause is true,
-            // in this case if an item starts with the given letter,
-            // ignoring UPPERCASE or lowercase.
-            .filter { it.startsWith(letterId, ignoreCase = true) }
-            // Returns a collection that it has shuffled in place
-            .shuffled()
-            // Returns the first n items as a [List]
-            .take(5)
-            // Returns a sorted version of that [List]
-            .sorted()
+        filteredWords = words.filter{it.startsWith(letterId, ignoreCase = true)}.sorted()
+            .distinctBy{(it as String).uppercase()}
     }
 
     class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
