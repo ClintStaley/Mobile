@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2022-03-03T13:35:53.460000000"/>
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<style type="text/css">
+		@page { margin: 0.79in }
+		h1 { margin-bottom: 0.08in; background: transparent }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt }
+		h1.cjk { font-family: "Microsoft YaHei"; font-size: 18pt }
+		h1.ctl { font-family: "Arial"; font-size: 18pt }
+		p { margin-bottom: 0.1in; background: transparent; line-height: 115% }
+		h3.western { font-family: "Albany", sans-serif }
+		h3.cjk { font-family: "Noto Sans CJK SC" }
+		h3.ctl { font-family: "Lohit Devanagari" }
+		pre.cjk { font-family: "NSimSun", monospace }
+	</style>
+</head>
+<body lang="en-US" dir="ltr"><h1 class="western" align="center">Introductory
+Android</h1>
+<h3 class="western">Unit 1: <font face="Albany, sans-serif"><font size="4" style="font-size: 14pt"><b>Intents</b></font></font></h3>
+<p>Much of this path centers on the basics of Intents</p>
+<ol>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">Research
+	the Serializable interface from Java. An interface related to the
+	type of </span></span><i>extras</i><span style="font-variant: normal">
+	</span><span style="font-variant: normal"><span style="font-style: normal">does
+	something similar to Serializable. What interface is that? How are
+	it and Serializable the same, and how are they different</span></span><span style="font-variant: normal"><span style="font-style: normal">?</span></span></p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
+	MainActivity recommended code uses recyclerView.context when
+	creating LayoutManagers.   Find another way to get the context
+	without using recyclerView.context.  Prove, by appropriate testing,
+	that this alternate produces exactly the same Context.</span></span></p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
+	recommended setIcon code uses ContextCompat.  What is this class,
+	and why is it not surprising it's in androidx as opposed to android?
+	 Rewrite (and shorten!) those lines so as not to use ContextCompat. </span></span>
+	</p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">In
+	WordAdapter, modify the first line of the class so that the
+	following code will work in onCreateViewHolder.  Is the context
+	passed the same as for the original parent.context parameter?  Prove
+	this by appropriate logging, and show the logging statement you
+	used.</span></span></p>
+</ol>
+<pre class="western" style="margin-left: 0.79in"><font size="2" style="font-size: 10pt"><span style="font-variant: normal"><font color="#0033b3"><font face="JetBrains Mono, monospace"><span style="font-style: normal">val </span></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="JetBrains Mono, monospace"><span style="font-style: normal">layout </span></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><span style="font-style: normal">= </span></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="JetBrains Mono, monospace"><span style="font-style: normal">LayoutInflater</span></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><span style="font-style: normal">.from(</span></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><span style="font-style: normal">context</span></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><span style="font-style: normal">)</span></font></font></span><font color="#080808"><font face="JetBrains Mono, monospace">.inflate(</font></font><font color="#000000"><font face="JetBrains Mono, monospace">R</font></font><font color="#080808"><font face="JetBrains Mono, monospace">.</font></font><font color="#000000"><font face="JetBrains Mono, monospace">layout</font></font><font color="#080808"><font face="JetBrains Mono, monospace">.</font></font><font color="#871094"><font face="JetBrains Mono, monospace"><i>item_view</i></font></font><font color="#080808"><font face="JetBrains Mono, monospace">, parent, </font></font><font color="#0033b3"><font face="JetBrains Mono, monospace">false</font></font><font color="#080808"><font face="JetBrains Mono, monospace">)</font></font></font>
+</pre>
+<ol start="5">
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
+	WordAdapter.onBindViewHolder can be shorteted to these two lines. 
+	Add a click handler to make this work.</span></span></p>
+</ol>
+<pre class="western" style="margin-left: 0.79in"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-variant: normal"><span style="font-style: normal">holder.</span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">button</span></font></span><span style="font-variant: normal"><span style="font-style: normal">.</span></span><span style="font-variant: normal"><font color="#871094"><i>text </i></font></span><span style="font-variant: normal"><span style="font-style: normal">= </span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">filteredWords</span></font></span><span style="font-variant: normal"><span style="font-style: normal">[position]</span></span></font></font></font></pre><p style="margin-left: 0.79in">
+<span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">holder.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">button</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.setOnClickListener(</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><i>clickHandler</i></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">)</span></font></font></font></span></p>
+<ol start="6">
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
+	LetterAdapter.onBindViewHolder implementation can be shortened to
+	just this one line if you supply an appropriate letterClickListener
+	elsewhere in the file and also move the setOnClickListener call so
+	it's done just once per ViewHolder.    Do this</span></span></p>
+</ol>
+<pre class="western" style="margin-left: 0.79in"><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">holder.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">button</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><i>text </i></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">= </span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">list</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.get(position).toString()</span></font></font></font></span></pre>
+<ol start="6">
+	<p></p>
+	<li><p style="font-variant: normal; font-style: normal">Is the
+	initial android:icon value in main_menu.xml actually needed?  Test
+	to see if your answer is correct.  Why is this so?</p>
+	<li><p style="font-variant: normal; font-style: normal">Adjust the
+	buttons for word-lookup so that they comprise a TextView giving the
+	word or phrase, followed by Google and DDG buttons that conduct a
+	search on Google or DuckDuckGo for the word/phrase.  Also, allow
+	multiword phrases, and properly frame the search request to include
+	spaces between words.</p>
+	<li><p style="font-variant: normal; font-style: normal">The current
+	implementation randomly chooses a few words from all that begin with
+	the letter in question.  Instead, show all words beginning with the
+	letter, and let the RecyclerView scroll through them.  Remove
+	duplicate words if there are any, without regard for case (e.g.
+	Craft and craFt are duplicates).  Be sure the event handling for
+	Google and DDG works even when scrolled to the bottom.  The
+	arrays.xml file is grouped by letter.  What happens if it's not? 
+	Why?</p>
+</ol>
+<h3 class="western">Submission</h3>
+<p>First, demo your work for me, then:</p>
+<ol>
+	<li><p>Submit a Questions.pdf/docx/html with answers to the
+	noncoding questions above</p>
+	<li><p>Tag labelled Navigation1 in your git repo.</p>
+</ol>
+<p><br/>
+<br/>
+
+</p>
+</body>
+</html>
