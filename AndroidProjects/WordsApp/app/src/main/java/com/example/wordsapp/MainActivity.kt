@@ -17,26 +17,17 @@ package com.example.wordsapp
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.wordsapp.databinding.ActivityMainBinding
 
 /**
  * Main Activity and entry point for the app. Displays a RecyclerView of letters.
  */
 class MainActivity : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
-    private var layoutSwitcher : MenuItem? = null
-    private var linearLayout = true
-
-    companion object {
-        const val gridWidth = 4
-    }
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,40 +35,20 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        recyclerView = binding.recyclerView
-        configRecycler();
-        recyclerView.adapter = LetterAdapter()
+        // Get the navigation host fragment from this Activity
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        // Instantiate the navController using the NavHostFragment
+        navController = navHostFragment.navController
+        // Make sure actions in the ActionBar get propagated to the NavController
+        setupActionBarWithNavController(navController)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        layoutSwitcher = menu?.findItem(R.id.layout_switcher)
-        setSwitcherIcon()
-
-        return true;
-    }
-
-    fun setSwitcherIcon() : Unit {
-        layoutSwitcher?.icon = getDrawable(
-         if (linearLayout) R.drawable.ic_view_grid else R.drawable.ic_view_linear)
-    }
-
-    fun configRecycler() : Unit {
-        recyclerView.layoutManager = if (linearLayout)
-            LinearLayoutManager(this)
-        else
-            GridLayoutManager(this, gridWidth)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.layout_switcher) {
-            linearLayout = !linearLayout
-            configRecycler()
-            setSwitcherIcon()
-
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item)
+    /**
+     * Enables back button support. Simply navigates one element up on the stack.
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
+

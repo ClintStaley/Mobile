@@ -23,20 +23,20 @@ import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 val letterClickHandler = {view: View ->
-    val intent = Intent(view.context, DetailActivity::class.java)
+    val letter = (view as Button).text.toString()
+    val action = LetterFragmentDirections.actionLetterFragmentToWordFragment(letter)
 
-    intent.putExtra(DetailActivity.LETTER, (view as Button).text.toString())
-    view.context.startActivity(intent)
+    view.findNavController().navigate(action)
 }
 
 /**
  * Adapter for the [RecyclerView] in [DetailActivity].
  */
-class LetterAdapter :
-    RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
+class LetterAdapter :  RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
 
     // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
     private val list = ('A').rangeTo('Z').toList()

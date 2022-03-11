@@ -27,10 +27,11 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 val clickHandler = {view: View ->
     val query = if ((view as Button).text == "Google")
-     DetailActivity.GGL_QUERY else DetailActivity.DDG_QUERY
+     WordFragment.GGL_QUERY else WordFragment.DDG_QUERY
     val text = view.getTag() as String
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("${query}${text}"))
 
@@ -50,7 +51,7 @@ class WordAdapter(private val letterId: String, val context: Context) :
         val words = context.resources.getStringArray(R.array.words).toList()
 
         filteredWords = words.filter{it.startsWith(letterId, ignoreCase = true)}.sorted()
-            .distinctBy{(it as String).uppercase()}
+            .distinctBy{(it as String).toUpperCase()}
     }
 
     class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
