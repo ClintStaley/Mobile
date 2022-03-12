@@ -28,8 +28,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 val letterClickHandler = {view: View ->
     val letter = (view as Button).text.toString()
-    val action = LetterFragmentDirections.actionLetterFragmentToWordFragment
-     (letter = letter)
+    val action = LetterFragmentDirections
+     .actionLetterFragmentToWordFragment(LETTER = letter)
 
     view.findNavController().navigate(action)
 }

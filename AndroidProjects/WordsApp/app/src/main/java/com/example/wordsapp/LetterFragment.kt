@@ -23,6 +23,7 @@ class LetterFragment : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.e("LetterFragment", "OnCreate")
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }

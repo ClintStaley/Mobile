@@ -1,6 +1,7 @@
 package com.example.wordsapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class WordFragment : Fragment() {
     companion object {
-        const val LETTER = "letter"
+        const val LETTER = "LETTER"
         const val GGL_QUERY = "https://www.google.com/search?q="
         const val DDG_QUERY = "https://www.duckduckgo.com/search?q="
     }
@@ -34,6 +35,7 @@ class WordFragment : Fragment() {
     // Basic setup of object, including argument unloading
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.e("WordFragment", "OnCreate")
         arguments?.let {
             letter = it.getString(LETTER) ?: "A"
         }
@@ -45,7 +47,7 @@ class WordFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.e("Wod")
+        Log.e("WordFragment", "OnCreateView")
         _binding = FragmentWordBinding.inflate(inflater, container, false)
         return binding.root
     }
