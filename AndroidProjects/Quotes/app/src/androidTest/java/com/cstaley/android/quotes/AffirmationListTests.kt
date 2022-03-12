@@ -30,6 +30,7 @@ class AffirmationListTests {
         onView(withId(R.id.quotes_view)).perform(
             RecyclerViewActions.scrollToPosition<QuoteAdapter.QuoteViewHolder>(5)
         )
-        onView(withText(R.string.quote6)).check(matches(isDisplayed()))
+        onView(withText(R.string.quote6))
+            .check(matches(isDisplayed()))
     }
 }

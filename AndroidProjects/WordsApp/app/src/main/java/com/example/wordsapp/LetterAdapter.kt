@@ -28,7 +28,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 val letterClickHandler = {view: View ->
     val letter = (view as Button).text.toString()
-    val action = LetterFragmentDirections.actionLetterFragmentToWordFragment(letter)
+    val action = LetterFragmentDirections.actionLetterFragmentToWordFragment
+     (letter = letter)
 
     view.findNavController().navigate(action)
 }
@@ -53,7 +54,8 @@ class LetterAdapter :  RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
         return list.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
+     : LetterViewHolder {
         val layout = LayoutInflater.from(parent.context)
             .inflate(R.layout.letter_view, parent, false)
 

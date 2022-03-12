@@ -26,12 +26,12 @@ class QuoteAdapter (
         val adapterLayout = LayoutInflater.from(parent.context)
          .inflate(R.layout.quote_layout, parent, false)
 
-        // Log.e("tester", "ocvh")
         return QuoteViewHolder(adapterLayout)
     }
 
     override fun onBindViewHolder(holder: QuoteViewHolder, position: Int) {
         val quote = dataset[position]
+
         holder.textView.text = context.resources.getString(quote.txtResourceId)
         holder.imgView.setImageResource(quote.imageResourceId)
         holder.textView.setTypeface(

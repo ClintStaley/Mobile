@@ -55,7 +55,8 @@ class LetterFragment : Fragment() {
 
     fun setSwitcherIcon() : Unit {
         layoutSwitcher?.icon = getDrawable(requireContext(),
-            if (linearLayout) R.drawable.ic_view_grid else R.drawable.ic_view_linear)
+         if (linearLayout) R.drawable.ic_view_grid
+         else R.drawable.ic_view_linear)
     }
 
     fun configRecycler() : Unit {

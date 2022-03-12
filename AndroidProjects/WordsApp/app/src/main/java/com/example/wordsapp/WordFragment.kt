@@ -41,8 +41,11 @@ class WordFragment : Fragment() {
 
     // Inflate layout and return top-level view
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
+        Log.e("Wod")
         _binding = FragmentWordBinding.inflate(inflater, container, false)
         return binding.root
     }

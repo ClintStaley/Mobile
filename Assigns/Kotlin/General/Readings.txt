@@ -1,0 +1,43 @@
+Read the following Kotlin materials, and comprehend the examples.  The order of reading is suggested, not required; if you find examples more compelling than concepts as a starting point, no problem.  But be sure you have all the reading covered by the due date.
+
+The three major sets of reading below are duplicative; they cover roughly the same concepts.  One important self-instruction strategy is to draw from mutiple sources when understanding an idea.  You'll often find one more useful than the others, depending on the quality of the sources and your learning style, but the other sources still provide reinforcement and review for your primary source.
+
+Install and test the kotlinc commandline compiler on your machine, including building and running a HelloWorld program.
+
+https://kotlinlang.org/docs/home.html (Links to an external site.)
+
+Kotlin Overview Read this lightly to get a feel for the overall applicability of the language
+
+Basics Read this thoroughly.  You may, per preference, wait on the Kotlin By Example link till later
+
+Concepts Read thoroughly except for Reflection which can wait till later
+
+ 
+
+Kotlin By Example (Links to an external site.)
+
+Understand all examples through Collections
+
+ 
+
+0. Briefly describe the reading strategy you found must useful, in particular which of the references became your "primary" source, and why.
+
+1. Following the theme of understanding *why* a language has a given feature,  consider how properties (aka member data) are declared and initialized/constructed.  This is quite different from Java, C# or similar languages.  What are the differences, and how do those differences make declaration and construction more elegant?  Give at least one example of tedious, repeated boilerplate related to construction, common in earlier languages, that Kotlin eliminates.
+
+2. Properties are default public in Kotlin, and you are invited/expected to just use them directly via dot-notation, e.g. myObj.count.  We've drilled into you for years the idea that good design requires private/protected properties, accessed via getter/setter pairs, and that public properties are a bad idea, in particular because you never know when you'll need to do some housekeeping surrounding getting or setting, e.g. updating a count before returning it in getCount, or updating related data when the count changes via a setCount call.  How does Kotlin get around such concerns to permit public properties as good (and simple!) design.  What would you do in Kotlin to handle the housekeeping needs just described for the count property without having to change count to private data accessed by set/get?   And, a related question, could a simple access like x = myObj.count run for a long time, or would that be a bug?  Why or why not?
+
+3.  You run the executable created by kotlinc using the java command.  Why do you need the java command, and how is that compatible with the fact that Kotlin is an independent language from Java (e.g. not a Java front end or enhanced version)?
+
+4. Kotlin has no ? : ternary operator.   For instance:  println(a > b ? a : b) will not compile.  What is the alternative Kotlin provides?
+
+5. Rewrite the standard hello world function below to a one-line equivalent without curly braces.  Compile and run it
+
+fun main() {
+    println("Hello world")
+}
+
+6. What is the Kotlin equivalent of the Java declaration  SomeClass<? extends Base, ? super Derived>?   Why?
+
+7. What is the closest analogy in other languages of Kotlin's "data class"?  (Consider in particular C and C++)
+
+ 
