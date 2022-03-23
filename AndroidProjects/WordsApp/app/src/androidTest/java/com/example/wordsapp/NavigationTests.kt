@@ -38,24 +38,5 @@ class NavigationTests {
         assertEquals(navController.currentDestination?.id, R.id.wordFragment)
     }
 
-    @Test
-    fun pickWords() {
-        val navController = TestNavHostController(
-            ApplicationProvider.getApplicationContext())
 
-        val wordScenario = launchFragmentInContainer<WordFragment>(
-            themeResId = R.style.Theme_Words)
-
-        letterScenario.onFragment {frag ->
-            navController.setGraph(R.navigation.nav)
-            Navigation.setViewNavController(frag.requireView(), navController)
-        }
-
-        onView(withId(R.id.recycler_view)).perform(
-            RecyclerViewActions.
-            actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click())
-        )
-
-        assertEquals(navController.currentDestination?.id, R.id.wordFragment)
-    }
 }

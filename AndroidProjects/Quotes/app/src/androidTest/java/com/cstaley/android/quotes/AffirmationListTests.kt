@@ -1,5 +1,6 @@
 package com.cstaley.android.quotes
 
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -22,6 +23,8 @@ import org.junit.Rule
  */
 @RunWith(AndroidJUnit4::class)
 class AffirmationListTests {
+
+    // Create activity
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
 
@@ -31,6 +34,19 @@ class AffirmationListTests {
             RecyclerViewActions.scrollToPosition<QuoteAdapter.QuoteViewHolder>(5)
         )
         onView(withText(R.string.quote6))
+            .check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkTextScroll() {
+
+        onView(withId(R.id.quotes_view)).perform(
+            RecyclerViewActions.scrollTo<RecyclerView.ViewHolder>(
+                hasDescendant(withText(R.string.quote8))
+            )
+        )
+
+        onView(withText(R.string.quote8))
             .check(matches(isDisplayed()))
     }
 }
