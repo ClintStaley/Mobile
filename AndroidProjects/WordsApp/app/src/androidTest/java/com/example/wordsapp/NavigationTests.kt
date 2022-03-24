@@ -1,5 +1,6 @@
 package com.example.wordsapp
 
+import android.os.Bundle
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
@@ -42,11 +43,16 @@ class NavigationTests {
     fun pickWords() {
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext())
+        val args = Bundle()
+
+        args.putString(WordFragment.LETTER, "B")
 
         val wordScenario = launchFragmentInContainer<WordFragment>(
-            themeResId = R.style.Theme_Words)
+            fragmentArgs = args,
+            themeResId = R.style.Theme_Words
+        )
 
-        letterScenario.onFragment {frag ->
+        wordScenario.onFragment {frag ->
             navController.setGraph(R.navigation.nav)
             Navigation.setViewNavController(frag.requireView(), navController)
         }
