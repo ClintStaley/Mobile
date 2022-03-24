@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2022-03-14T15:53:51.960000000"/>
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
+	<style type="text/css">
+		@page { margin: 0.79in }
+		h1 { margin-bottom: 0.08in; background: transparent }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt }
+		h1.cjk { font-family: "Microsoft YaHei"; font-size: 18pt }
+		h1.ctl { font-family: "Arial"; font-size: 18pt }
+		p { margin-bottom: 0.1in; background: transparent; line-height: 115% }
+		h3.western { font-family: "Albany", sans-serif }
+		h3.cjk { font-family: "Noto Sans CJK SC" }
+		h3.ctl { font-family: "Lohit Devanagari" }
+	</style>
+</head>
+<body lang="en-US" dir="ltr"><h1 class="western" align="center">Navigation
+in Android</h1>
+<h3 class="western">Unit 2: Fragments</h3>
+<p>Much of this path centers on <i>fragments</i><span style="font-style: normal">
+-- a means of changing what looks like Activities, without the heavy
+overhead of starting and stopping full processes.</span></p>
+<ol>
+	<li><p style="font-variant: normal; font-style: normal">Consider the
+	property declaration that appears in both fragments:  <font face="Liberation Mono, monospace">val
+	binding get() = _binding!!</font></p>
+</ol>
+<ul>
+	<ul>
+		<li><p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">What
+		is the role of the variable _binding?  (A Kotlin language term)</font></p>
+		<li><p style="font-variant: normal; font-style: normal"><font face="Liberation Serif, serif">Why
+		do we need the !! operator?  What would we need to do to make the
+		property compile if we removed the !!?  What are we counting on the
+		user of the Fragment not to do?</font></p>
+	</ul>
+</ul>
+<ol start="2">
+	<li><p style="font-variant: normal; font-style: normal">The third
+	parameter of inflate in both Fragments is left false.  What is the
+	purpose of this parameter, and why does leaving it false make sense
+	given this is a Fragment?</p>
+	<li><p style="font-variant: normal; font-style: normal">Why are
+	onCreateView and onCreateOptionsMenu *passed* inflaters as
+	parameters, when in the earlier Activity/Intent based version of the
+	WordsApp there was a menuInflater and a layoutInflater just
+	&quot;available&quot; in OnCreate and OnCreateOptionsMenu?   Why
+	could the earlier version just use existing inflaters?  Where were
+	they declared that made this possible?  Why is it necessary to pass
+	inflaters to the Fragments?  What inflaters are being passed?</p>
+	<li><p style="font-variant: normal; font-style: normal">Why does
+	onCreateOptionsMenu no longer return a boolean as it did in the
+	Activity/Intent version, and why is the passed-in menu now
+	nonnullable?  What did a false-return from onCreateOptionsMenu
+	signify in the earlier case?  How is that handled for Fragments, and
+	why does this mean the Fragment onCreateOptionsMenu now returns Unit
+	(right?) and takes a nonnullable Menu.</p>
+	<li><p style="font-variant: normal; font-style: normal">Why is the
+	android:label value in the navigation graph?  Shouldn't that be part
+	of the fragment layout itself?  When would this possibly-odd
+	decision be useful?</p>
+	<li><p style="font-variant: normal; font-style: normal">Why don't we
+	do binding operations in onCreate instead of onCreateView?</p>
+	<li><p style="font-variant: normal; font-style: normal">Why does the
+	navigation graph attach arguments to the target, instead of the
+	action?  The arguments are clearly attached to the action in the
+	navigate call.</p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">What
+	is the &quot;letter =&quot; notation in th</span></span>e
+	actionLetterListFragmentToWordListFragment c<span style="font-variant: normal"><span style="font-style: normal">all
+	in LetterAdapter?  Is that an assignment statement embedded in the
+	call?</span></span></p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">Why
+	do the navigation-specialized tests need ApplicationProvider, while
+	earlier tests e.g. for Quotes, even those that tested the UI, did
+	not?  What do you think the TestNavHostController does with the
+	context passed to it?   This question is really asking you to
+	understand the structural difference between earlier UI tests and
+	these navigation-specialized tests.</span></span></p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">What
+	type of thing does launchFragmentInContainer return?  Is the
+	&quot;themeResId =&quot; in the call needed?  What would happen if
+	we omitted it? Why?  </span></span>
+	</p>
+	<li><p><span style="font-variant: normal"> <span style="font-style: normal">How
+	many deprecated functions are there in
+	androidx.fragment.app.testing?  What does this suggest about the
+	design history of this testing library?  How do you feel about the
+	design of the fragment testing library in general?</span></span></p>
+	<li><p><span style="font-variant: normal"> <span style="font-style: normal">Write
+	a standard UI test for this application, like those for Quotes and
+	Dogglers.  This one should start at the first page, drill down to
+	the &quot;C&quot; words, and verify that C words are now showing.</span></span></p>
+	<li><p style="font-variant: normal; font-style: normal">As with
+	prior exercises, describe one deeper exploration you did springing
+	off of the concepts in this path, which docs you found useful, etc.</p>
+</ol>
+<h3 class="western">Submission</h3>
+<ol>
+	<li><p>First, demo your work for me and get an OK. Then...</p>
+	<li><p>Submit a Questions.pdf/docx/html with answers to the
+	noncoding questions above</p>
+	<li><p>Tag labelled NavigationFragments in your git repo.</p>
+</ol>
+<p><br/>
+<br/>
+
+</p>
+</body>
+</html>
