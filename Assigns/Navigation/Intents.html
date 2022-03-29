@@ -5,7 +5,9 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-03-05T20:47:18.422000000"/>
+	<meta name="changed" content="2022-03-28T12:33:28.444000000"/>
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
@@ -40,11 +42,13 @@ in Android</h1>
 	</span><span style="font-variant: normal"><span style="font-style: normal">does
 	something similar to Serializable. What interface is that? How are
 	it and Serializable the same, and how are they different?</span></span></p>
-	<li><p style="font-variant: normal; font-style: normal">The
-	MainActivity recommended code uses recyclerView.context when
-	creating LayoutManagers. Find another way to get the context without
-	using recyclerView.context. Prove, by appropriate testing, that this
-	alternate produces exactly the same Context.</p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
+	MainActivity recommended code uses </span></span><span style="font-variant: normal"><i>this</i></span><span style="font-variant: normal"><span style="font-style: normal">
+	when creating LayoutManagers. Find another way </span></span><span style="font-variant: normal"><span style="font-style: normal">satisfy
+	the first parameter</span></span><span style="font-variant: normal"><span style="font-style: normal">
+	without using </span></span><span style="font-variant: normal"><i>this</i></span><span style="font-variant: normal"><i>
+	</i></span><span style="font-variant: normal"><span style="font-style: normal">or
+	any AppCompatActivity object</span></span><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
 	<li><p style="font-variant: normal; font-style: normal">The
 	recommended setIcon code uses ContextCompat. What is this class, and
 	why is it not surprising it's in androidx as opposed to android?
