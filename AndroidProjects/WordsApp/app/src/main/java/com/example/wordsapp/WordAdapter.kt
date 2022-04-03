@@ -32,7 +32,7 @@ import java.util.*
 val clickHandler = {view: View ->
     val query = if ((view as Button).text == "Google")
      WordFragment.GGL_QUERY else WordFragment.DDG_QUERY
-    val text = view.getTag() as String
+    val text = view.tag as String
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse("${query}${text}"))
 
     view.context.startActivity(intent)
@@ -78,10 +78,10 @@ class WordAdapter(private val letterId: String, val context: Context) :
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         holder.wordView.text = filteredWords[position]
 
-        holder.gglBtn.setTag(holder.wordView.text)
+        holder.gglBtn.tag = holder.wordView.text
         holder.gglBtn.setOnClickListener(clickHandler)
 
-        holder.ddgBtn.setTag(holder.wordView.text)
+        holder.ddgBtn.tag = holder.wordView.text
         holder.ddgBtn.setOnClickListener(clickHandler)
     }
 

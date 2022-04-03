@@ -5,7 +5,8 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-03-24T00:33:32.227000000"/>
+	<meta name="changed" content="2022-04-01T13:58:59.698000000"/>
+	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
@@ -34,23 +35,70 @@ in Android</h1>
 <h3 class="western">Unit <font face="Albany, sans-serif"><font size="4" style="font-size: 14pt"><b>3:
 ViewModel</b></font></font></h3>
 <ol>
-	<li><p style="font-variant: normal; font-style: normal">Revise to
-	eliminate init</p>
-	<li><p style="font-variant: normal; font-style: normal">Revise to
-	avoid need to repeat getting word (jeez!)</p>
-	<li><p style="font-variant: normal; font-style: normal">Exploration
-	of method cascading, \</p>
-	<li><p style="font-variant: normal; font-style: normal">How does
-	viewModels() work?  Persistence of process?</p>
-	<li><p style="font-variant: normal; font-style: normal">Params of
-	setNegativeButton, setPositiveButton.  Other methods of constructor.</p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">Remove
+	the Spannable code for currentScrambledWord and leave it a simple
+	LiveData&lt;String&gt;.  We're not using the accessibility, and it's
+	not well explained anyway.</span></span></p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">Revise
+	</span></span><span style="font-variant: normal"><span style="font-style: normal">the
+	ViewModel so that instead of keeping a list of previously used
+	words, it simply removes already-used words from the wordlist so
+	they don't appear again, in this or any future game.</span></span></p>
+	<li><p style="font-variant: normal; font-style: normal">Look up
+	&quot;method cascading&quot; and &quot;method chaining&quot;.  Which
+	of the two is at work in the MaterialAlertDialogBuilder code?  If
+	you think about it, you can figure out what the last line of each of
+	the methods setTitle, setMessage, etc. is.  What is that line, and
+	why?</p>
+	<li><p style="font-variant: normal; font-style: normal">What does
+	setCancelable(false) in the dialog setup do?  What bad thing could
+	happen if we omitted it?</p>
+	<li><p style="font-variant: normal; font-style: normal">Can you
+	remove the lateinit from the currentWord property?  How?</p>
+	<li><p style="font-variant: normal; font-style: normal">Modify the
+	code so it pops up a small dialog showing the correct word when you
+	do a skip.  The dialog is cancelled by an &quot;OK&quot; button. 
+	Consider appropriate modifications to the currentWord property</p>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">What
+	type is the second parameter of setNegativeButton?  What are its
+	parameters?  When might you use them? </span></span>
+	</p>
+	<li><p style="font-variant: normal; font-style: normal">Speculate
+	briefly on how viewModels() works.  Is it a function?  A class?  If
+	the former, what does it return?  
+	</p>
+	<li><p style="font-variant: normal; font-style: normal">Be sure you
+	understand why some of the ViewModel properties are LiveData
+	(actually MutableLiveData).  Modify the score property using an
+	object declaration with an override so you can see when an observer
+	is added to it.  (Generate a log message).  How does the Android
+	system know to do this, and what is the observer object? 
+	</p>
+	<li><p style="font-variant: normal; font-style: normal"> Predict the
+	order in which the following methods will be called and returned,
+	including showing which method calls others.  
+	</p>
+	<ol>
+		<li><p style="font-variant: normal; font-style: normal">MainActivity.onCreate</p>
+		<li><p style="font-variant: normal; font-style: normal">MainActivity
+		super.onCreate</p>
+		<li><p style="font-variant: normal; font-style: normal">setContentView</p>
+		<li><p style="font-variant: normal; font-style: normal">GameFragment.onCreate</p>
+		<li><p style="font-variant: normal; font-style: normal">GameFragment.onViewCreated</p>
+		<li><p style="font-variant: normal; font-style: normal">The
+		observer addition for score</p>
+	</ol>
+	<li><p style="font-variant: normal; font-style: normal">  Alter the
+	layout for game_fragment so that there are no uses of @{} in the
+	text definitions.  Fix the resultant absence by making your own
+	observer calls, in the appropriate location(s).</p>
 </ol>
 <h3 class="western">Submission</h3>
 <ol>
 	<li><p>First, demo your work for me and get an OK. Then...</p>
 	<li><p>Submit a Questions.pdf/docx/html with answers to the
 	noncoding questions above</p>
-	<li><p>Tag labelled NavigationFragments in your git repo.</p>
+	<li><p>Tag labelled NavigationViewModel in your git repo.</p>
 </ol>
 <p><br/>
 <br/>

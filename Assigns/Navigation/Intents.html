@@ -5,7 +5,9 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-03-28T12:33:28.444000000"/>
+	<meta name="changed" content="2022-04-01T16:13:04.801000000"/>
+	<meta name="created" content="00:00:00">
+	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
 	<meta name="created" content="00:00:00">
@@ -43,12 +45,13 @@ in Android</h1>
 	something similar to Serializable. What interface is that? How are
 	it and Serializable the same, and how are they different?</span></span></p>
 	<li><p><span style="font-variant: normal"><span style="font-style: normal">The
-	MainActivity recommended code uses </span></span><span style="font-variant: normal"><i>this</i></span><span style="font-variant: normal"><span style="font-style: normal">
-	when creating LayoutManagers. Find another way </span></span><span style="font-variant: normal"><span style="font-style: normal">satisfy
-	the first parameter</span></span><span style="font-variant: normal"><span style="font-style: normal">
-	without using </span></span><span style="font-variant: normal"><i>this</i></span><span style="font-variant: normal"><i>
-	</i></span><span style="font-variant: normal"><span style="font-style: normal">or
-	any AppCompatActivity object</span></span><span style="font-variant: normal"><span style="font-style: normal">.</span></span></p>
+	MainActivity recommended code uses </span></span><span style="font-variant: normal"><i>this</i></span><span style="font-variant: normal">
+	</span><span style="font-variant: normal"><span style="font-style: normal">when
+	creating LayoutManagers. Find another way satisfy the first
+	parameter</span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">without
+	using </span></span><span style="font-variant: normal"><i>this</i></span><span style="font-variant: normal">
+	</span><span style="font-variant: normal"><span style="font-style: normal">or
+	any AppCompatActivity object.</span></span></p>
 	<li><p style="font-variant: normal; font-style: normal">The
 	recommended setIcon code uses ContextCompat. What is this class, and
 	why is it not surprising it's in androidx as opposed to android?
@@ -62,15 +65,17 @@ in Android</h1>
 	used.</p>
 	<pre class="western" style="margin-bottom: 0.2in"><font size="2" style="font-size: 10pt"><span style="font-variant: normal"><font color="#0033b3"><font face="JetBrains Mono, monospace"><span style="font-style: normal">val </span></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="JetBrains Mono, monospace"><span style="font-style: normal">layout </span></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><span style="font-style: normal">= </span></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="JetBrains Mono, monospace"><span style="font-style: normal">LayoutInflater</span></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><span style="font-style: normal">.from(</span></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><span style="font-style: normal">context</span></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><span style="font-style: normal">)</span></font></font></span><font color="#080808"><font face="JetBrains Mono, monospace">.inflate(</font></font><font color="#000000"><font face="JetBrains Mono, monospace">R</font></font><font color="#080808"><font face="JetBrains Mono, monospace">.</font></font><font color="#000000"><font face="JetBrains Mono, monospace">layout</font></font><font color="#080808"><font face="JetBrains Mono, monospace">.</font></font><font color="#871094"><font face="JetBrains Mono, monospace"><i>item_view</i></font></font><font color="#080808"><font face="JetBrains Mono, monospace">, parent, </font></font><font color="#0033b3"><font face="JetBrains Mono, monospace">false</font></font><font color="#080808"><font face="JetBrains Mono, monospace">)</font></font></font></pre>
 	<li><p style="font-variant: normal; font-style: normal">The
-	WordAdapter.onBindViewHolder can be shorteted to these two lines.
-	Add a click handler to make this work.</p>
+	WordAdapter.onBindViewHolder can be shorteted to these two lines,
+	plus one more that attaches information to the holder.button. Add a
+	click handler to make this work, using the extra line to give it
+	information.</p>
 	<pre class="western" style="margin-bottom: 0.2in; line-height: 100%"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-variant: normal"><span style="font-style: normal">holder.</span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">button</span></font></span><span style="font-variant: normal"><span style="font-style: normal">.</span></span><span style="font-variant: normal"><font color="#871094"><i>text </i></font></span><span style="font-variant: normal"><span style="font-style: normal">= </span></span><span style="font-variant: normal"><font color="#871094"><span style="font-style: normal">filteredWords</span></font></span><span style="font-variant: normal"><span style="font-style: normal">[position]</span></span></font></font></font></pre><p style="line-height: 100%">
 	<span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">holder.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">button</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.setOnClickListener(</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><i>clickHandler</i></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">)</span></font></font></font></span></p>
-	<li><p style="font-variant: normal; font-style: normal">The
-	LetterAdapter.onBindViewHolder implementation can be shortened to
-	just this one line if you supply an appropriate letterClickListener
-	elsewhere in the file and also move the setOnClickListener call so
-	it's done just once per ViewHolder. Do this</p>
+	<li><p style="font-variant: normal; font-style: normal">Shorten the
+	LetterAdapter.onBindViewHolder implementation to just the one line
+	shown below.  This is possible if you supply an appropriate
+	letterClickListener elsewhere in the file and also move the
+	setOnClickListener call so it's done just once per ViewHolder.</p>
 	<pre class="western" style="margin-bottom: 0.2in"><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">holder.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">button</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.</span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><i>text </i></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">= </span></font></font></font></span><span style="font-variant: normal"><font color="#871094"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">list</span></font></font></font></span><span style="font-variant: normal"><font color="#080808"><font face="JetBrains Mono, monospace"><font size="2" style="font-size: 11pt"><span style="font-style: normal">.get(position).toString()</span></font></font></font></span></pre>
 	<li><p style="font-variant: normal; font-style: normal">Is the
 	initial android:icon value in main_menu.xml actually needed? Test to
