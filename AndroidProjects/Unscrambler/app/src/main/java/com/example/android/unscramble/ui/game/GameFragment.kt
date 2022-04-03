@@ -17,6 +17,7 @@
 package com.example.android.unscramble.ui.game
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,9 +28,6 @@ import com.example.android.unscramble.R
 import com.example.android.unscramble.databinding.GameFragmentBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-/**
- * Fragment where the game is played, contains the game logic.
- */
 class GameFragment : Fragment() {
 
     // Binding object instance with access to the views in the game_fragment.xml layout
@@ -45,7 +43,9 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout XML file and return a binding object instance
-        binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+            R.layout.game_fragment, container, false)
+
         return binding.root
     }
 
@@ -55,6 +55,7 @@ class GameFragment : Fragment() {
         // Set the viewModel for data binding - this allows the bound layout access
         // to all the data in the VieWModel
         binding.gameViewModel = viewModel
+
         binding.maxNoOfWords = MAX_NO_OF_WORDS
         // Specify the fragment view as the lifecycle owner of the binding.
         // This is used so that the binding can observe LiveData updates
@@ -63,6 +64,7 @@ class GameFragment : Fragment() {
         // Setup a click listener for the Submit and Skip buttons.
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
+        Log.e("gf", "end of ovc")
     }
 
     /*
@@ -101,16 +103,16 @@ class GameFragment : Fragment() {
      */
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
-                .setTitle(getString(R.string.congratulations))
-                .setMessage(getString(R.string.you_scored, viewModel.score.value))
-                .setCancelable(false)
-                .setNegativeButton(getString(R.string.exit)) { _, _ ->
-                    exitGame()
-                }
-                .setPositiveButton(getString(R.string.play_again)) { _, _ ->
-                    restartGame()
-                }
-                .show()
+            .setTitle(getString(R.string.congratulations))
+            .setMessage(getString(R.string.you_scored, viewModel.score.value))
+            .setCancelable(false)
+            .setNegativeButton(getString(R.string.exit)) { _, _ ->
+                exitGame()
+            }
+            .setPositiveButton(getString(R.string.play_again)) { _, _ ->
+                restartGame()
+            }
+            .show()
     }
 
     /*
