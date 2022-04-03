@@ -1,5 +1,6 @@
 package com.example.wordsapp
 
+import android.os.Bundle
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.Navigation
 import androidx.navigation.testing.TestNavHostController
@@ -38,5 +39,29 @@ class NavigationTests {
         assertEquals(navController.currentDestination?.id, R.id.wordFragment)
     }
 
+    @Test
+    fun pickWords() {
+        val navController = TestNavHostController(
+            ApplicationProvider.getApplicationContext())
+        val args = Bundle()
 
+        args.putString(WordFragment.LETTER, "B")
+
+        val wordScenario = launchFragmentInContainer<WordFragment>(
+            fragmentArgs = args,
+            themeResId = R.style.Theme_Words
+        )
+
+        wordScenario.onFragment {frag ->
+            navController.setGraph(R.navigation.nav)
+            Navigation.setViewNavController(frag.requireView(), navController)
+        }
+
+        onView(withId(R.id.recycler_view)).perform(
+            RecyclerViewActions.
+            actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click())
+        )
+
+        assertEquals(navController.currentDestination?.id, R.id.wordFragment)
+    }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (C) 2020 The Android Open Source Project
  *
@@ -114,3 +115,9 @@ class GameViewModel : ViewModel() {
         } else false
     }
 }
+=======
+package com.example.android.unscramble.ui.game
+
+class GameViewModel {
+}
+>>>>>>> 47a91377b4d1ccf02cd96511bcd803953f0a6c89
