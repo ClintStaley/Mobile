@@ -27,4 +27,6 @@
     <string name="exit">Exit</string>
     <string name="play_again">Play Again</string>
     <string name="try_again">Try again!</string>
+    <string name="word_answer">The word was: %s</string>
+    <string name="word_answer_title">Missed word solution</string>
 </resources>

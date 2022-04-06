@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * Copyright (C) 2020 The Android Open Source Project
  *
@@ -18,6 +17,7 @@
 package com.example.android.unscramble.ui.game
 
 import android.util.Log
+import android.widget.TextView
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
@@ -32,7 +32,7 @@ class GameViewModel : ViewModel() {
     private val _score = object : MutableLiveData<Int>(0) {
         override @MainThread
         fun observe(owner: LifecycleOwner, observer: Observer<in Int>) {
-            Log.e("GVM", "observe!")
+            Log.e("GVM", "Hello " + observer.javaClass.canonicalName)
         }
     }
 
@@ -47,9 +47,12 @@ class GameViewModel : ViewModel() {
     val currentScrambledWord: LiveData<String>
         get() = _currentScrambledWord
 
-    // List of words used in the game
-    private var wordsList: MutableList<String> = mutableListOf()
-    private var currentWord: String = ""
+    private val _currentWord = MutableLiveData<String>("")
+    val currentWord: LiveData<String>
+        get() = _currentWord
+
+    // List of words not yet used in the game
+    private var wordsList : MutableList<String> = allWordsList.toMutableList()
 
     init {
         getNextWord()
@@ -59,21 +62,17 @@ class GameViewModel : ViewModel() {
      * Updates currentWord and currentScrambledWord with the next word.
      */
     private fun getNextWord() {
-        currentWord = allWordsList.random()
-        val tempWord = currentWord.toCharArray()
+        _currentWord.value = wordsList.random()
+        val tempWord = (_currentWord.value as String).toCharArray()
         tempWord.shuffle()
 
-        while (String(tempWord).equals(currentWord, false)) {
+        while (String(tempWord).equals(_currentWord.value, false)) {
             tempWord.shuffle()
         }
-        if (wordsList.contains(currentWord)) {
-            getNextWord()
-        } else {
-            Log.d("Unscramble", "currentWord= $currentWord")
-            _currentScrambledWord.value = String(tempWord)
-            _currentWordCount.value = _currentWordCount.value?.inc()
-            wordsList.add(currentWord)
-        }
+        Log.d("Unscramble", "currentWord= $currentWord")
+        _currentScrambledWord.value = String(tempWord)
+        _currentWordCount.value = _currentWordCount.value?.inc()
+        wordsList.remove(_currentWord.value)
     }
 
     /*
@@ -82,7 +81,6 @@ class GameViewModel : ViewModel() {
     fun reinitializeData() {
         _score.value = 0
         _currentWordCount.value = 0
-        wordsList.clear()
         getNextWord()
     }
 
@@ -98,7 +96,7 @@ class GameViewModel : ViewModel() {
     * Increases the score accordingly.
     */
     fun isUserWordCorrect(playerWord: String): Boolean {
-        if (playerWord.equals(currentWord, true)) {
+        if (playerWord.equals(_currentWord.value, true)) {
             increaseScore()
             return true
         }
@@ -115,9 +113,4 @@ class GameViewModel : ViewModel() {
         } else false
     }
 }
-=======
-package com.example.android.unscramble.ui.game
 
-class GameViewModel {
-}
->>>>>>> 47a91377b4d1ccf02cd96511bcd803953f0a6c89

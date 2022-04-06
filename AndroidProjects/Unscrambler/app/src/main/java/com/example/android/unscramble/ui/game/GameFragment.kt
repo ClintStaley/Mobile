@@ -64,7 +64,6 @@ class GameFragment : Fragment() {
         // Setup a click listener for the Submit and Skip buttons.
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
-        Log.e("gf", "end of ovc")
     }
 
     /*
@@ -91,6 +90,19 @@ class GameFragment : Fragment() {
      * After the last word, the user is shown a Dialog with the final score.
      */
     private fun onSkipWord() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.word_answer_title))
+            .setMessage(getString(R.string.word_answer, viewModel.currentWord.value))
+            .setCancelable(false)
+            .setPositiveButton("Ok") {_, _ -> nextWord()}
+            .show()
+    }
+
+    /* Skip the current word without increasing the score.
+     * Increase the word count.
+     * After the last word, show a Dialog with the final score.
+    */
+    private fun nextWord() {
         if (viewModel.nextWord()) {
             setErrorTextField(false)
         } else {
