@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="2022-04-08T19:47:53.052751202"/>
+	<meta name="changed" content="2022-04-11T05:46:24.646093646"/>
+	<style type="text/css">
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115% }
+		h3.cjk { font-family: "Noto Sans CJK SC" }
+		h3.ctl { font-family: "Lohit Devanagari" }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<ol>
+	<li/>
+<p style="margin-bottom: 0in; line-height: 100%">Understand
+	how activityViewModels works.</p>
+	<ol>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">What exactly
+		is it?  (Not, for instance, a method of Fragment...)</p>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">What does it
+		return?  (Not an OrderViewModel, exactly)</p>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">It's
+		parameterized.  What type is used to fulfill the parameter?  How
+		does it know this?</p>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">This
+		parameter must be reified in the returned value.  How would the
+		returned value use
+		it?<font color="#ce181e">https://stackoverflow.com/questions/68058302/difference-between-activityviewmodels-and-lazy-viewmodelprovider</font></p>
+		<p style="margin-bottom: 0in; line-height: 100%"></p>
+	</ol>
+	<li/>
+<p style="margin-bottom: 0in; line-height: 100%">Consider the
+	following code from PickupFragment.</p>
+	<ol>
+		<p style="margin-bottom: 0in; line-height: 100%">binding?.apply {</p>
+	</ol>
+	<p style="margin-bottom: 0in; line-height: 100%">           
+	lifecycleOwner = viewLifecycleOwner</p>
+	<p style="margin-bottom: 0in; line-height: 100%">           
+	viewModel = sharedViewModel</p>
+	<p style="margin-bottom: 0in; line-height: 100%">           
+	pickupFragment = this@PickupFragment</p>
+	<p style="margin-bottom: 0in; line-height: 100%">        }</p>
+	<ol>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">What
+		difference does the &quot;this@&quot; make?  If it were omitted,
+		what would be assigned to pickupFragment?</p>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">What method,
+		of what class, is called to implement the first assignment?  How do
+		you know?</p>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">What happens
+		if the first assignment is omitted?  Are there ViewModels for which
+		it could be?  Why?</p>
+		<li/>
+<p style="margin-bottom: 0in; line-height: 100%">What causes
+		binding to have a viewModel property to which to assign?  Why do we
+		even need to do this assignment?</p>
+	</ol>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#ce181e">https://developer.android.com/reference/android/databinding/ViewDataBinding#setlifecycleowner</font></p>
+	<li/>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">The
+	_price LiveData object in </font><font color="#000000">OrderViewModel.kt
+	</font><font color="#000000">will never be observed by any of the UI
+	elements in any Fragment.  What is its one observer, and why?</font></p>
+	<li/>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">How
+	many times during the execution of the program will the
+	Transformations.map method in OrderViewModel.kt be called?</font></p>
+	<li/>
+<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">Do
+	the Lunch Tray app as specified, and demo the results.</font></p>
+</ol>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<h3 class="western" style="font-variant: normal; letter-spacing: normal; font-style: normal">
+<font color="#000000"><font face="Albany, sans-serif">Submission</font></font></h3>
+<ol>
+	<li/>
+<p style="margin-bottom: 0.1in; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 0.19in; orphans: 2; widows: 2; background: transparent">
+	<font color="#000000"><font face="Times New Roman"><font size="4" style="font-size: 14pt">Demo
+	your Lunch Tray app and get an OK.</font></font></font></p>
+	<li/>
+<p style="margin-bottom: 0.1in; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 0.19in; orphans: 2; widows: 2; background: transparent">
+	<font color="#000000"><font face="Times New Roman"><font size="4" style="font-size: 14pt">Submit
+	a Questions.pdf/docx/html with answers to the questions above</font></font></font></p>
+	<li/>
+<p style="margin-bottom: 0.1in; font-variant: normal; letter-spacing: normal; font-style: normal; font-weight: normal; line-height: 0.19in; orphans: 2; widows: 2; background: transparent">
+	<font color="#000000"><font face="Times New Roman"><font size="4" style="font-size: 14pt">Tag
+	labelled Cupcakes in your git repo.</font></font></font></p>
+</ol>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+</body>
+</html>
