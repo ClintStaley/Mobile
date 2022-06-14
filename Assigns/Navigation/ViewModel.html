@@ -1,139 +1,114 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
 	<title></title>
-	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="generator" content="LibreOffice 6.3.5.2 (Windows)"/>
 	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="2022-04-04T03:14:53.605469639"/>
+	<meta name="changed" content="2022-05-11T12:33:07.475000000"/>
+	<meta name="created" content="00:00:00">
 	<style type="text/css">
 		@page { margin: 0.79in }
-		p { margin-bottom: 0.1in; background: transparent; line-height: 115% }
 		h1 { margin-bottom: 0.08in; background: transparent }
 		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt }
 		h1.cjk { font-family: "Microsoft YaHei"; font-size: 18pt }
 		h1.ctl { font-family: "Arial"; font-size: 18pt }
+		p { margin-bottom: 0.1in; background: transparent; line-height: 115% }
 		h3.western { font-family: "Albany", sans-serif }
 		h3.cjk { font-family: "Noto Sans CJK SC" }
 		h3.ctl { font-family: "Lohit Devanagari" }
 	</style>
 </head>
-<body lang="en-US" dir="ltr">
-<h1 class="western" align="center">Navigation in Android</h1>
+<body lang="en-US" dir="ltr"><h1 class="western" align="center">Navigation
+in Android</h1>
 <h3 class="western">Unit <font face="Albany, sans-serif"><font size="4" style="font-size: 14pt"><b>3:
 ViewModel</b></font></font></h3>
 <ol>
-	<li/>
-<p style="font-variant: normal; font-style: normal">Remove the
+	<li><p style="font-variant: normal; font-style: normal">Remove the
 	Spannable code for currentScrambledWord and leave it a simple
 	LiveData&lt;String&gt;. We're not using the accessibility, and it's
-	not well explained anyway.   
+	not well explained anyway. 
 	</p>
-	<li/>
-<p><span style="font-variant: normal"><span style="font-style: normal">Revise
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">Revise
 	the ViewModel so that instead of keeping a list of previously used
 	words, it simply removes already-used words from the wordlist so
-	they don't appear again, in this or any future game.</span></span><span style="font-variant: normal"><span style="font-style: normal">
-	 </span></span>
+	they don't appear again, in this or any future game.</span></span><span style="font-variant: normal">
+	</span>
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">Look up
+	<li><p style="font-variant: normal; font-style: normal">Look up
 	&quot;method cascading&quot; and &quot;method chaining&quot;. Which
 	of the two is at work in the MaterialAlertDialogBuilder code? If you
 	think about it, you can figure out what the last line of each of the
-	methods setTitle, setMessage, etc. is. What is that line, and why?  
+	methods setTitle, setMessage, etc. is. What is that line, and why? 
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">What does
+	<li><p style="font-variant: normal; font-style: normal">What does
 	setCancelable(false) in the dialog setup do? What bad thing could
 	happen if we omitted it? 
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">Can you
-	remove the lateinit from the currentWord property? How?  
+	<li><p style="font-variant: normal; font-style: normal">Can you
+	remove the lateinit from the currentWord property? How? 
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">Modify the
+	<li><p style="font-variant: normal; font-style: normal">Modify the
 	code so it pops up a small dialog showing the correct word when you
 	do a skip. The dialog is cancelled by an &quot;OK&quot; button,
 	which the user must press before a new word is shown or the
-	end-of-game dialog appears.  Make appropriate modifications to the
-	currentWord property.  
+	end-of-game dialog appears. Make appropriate modifications to the
+	currentWord property. 
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">What type
-	is the second parameter of setNegativeButton? What are its
-	parameters? When might you use them?  Given the call of
-	setNegativeButton in our code, you can precisely predict the value
-	of the second parameter.  What is it?  
+	<li><p style="font-variant: normal; font-style: normal">What type is
+	the second parameter of setNegativeButton? What are its parameters?
+	When might you use them? Given the call of setNegativeButton in our
+	code, you can precisely predict the value of the second parameter.
+	What is it? 
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">Speculate
+	<li><p style="font-variant: normal; font-style: normal">Speculate
 	briefly on how viewModels() works. Is it a function? A class? If the
-	former, what does it return?  
+	former, what does it return? 
 	</p>
-	<li/>
-<p><span style="font-variant: normal"><span style="font-style: normal">Why
-	are</span></span><span style="font-variant: normal"><span style="font-style: normal">
-	some of the ViewModel properties LiveData</span></span><span style="font-variant: normal"><span style="font-style: normal">
-	and others simple direct values?  How can a MutableLiveData backing
-	store be used to satisfy a LiveData property?  Why not expose the
-	MutableLiveData as a property instead?  What do we gain by not doing
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">Why
+	are</span></span><span style="font-variant: normal"> </span><span style="font-variant: normal"><span style="font-style: normal">some
+	of the ViewModel properties LiveData</span></span><span style="font-variant: normal">
+	</span><span style="font-variant: normal"><span style="font-style: normal">and
+	others simple direct values? How can a MutableLiveData backing store
+	be used to satisfy a LiveData property? Why not expose the
+	MutableLiveData as a property instead? What do we gain by not doing
 	so?</span></span></p>
-	<li/>
-<p><span style="font-variant: normal"> <span style="font-style: normal">Modify
-	the </span></span><span style="font-variant: normal"><span style="font-style: normal">MutableLiveData
-	</span></span><span style="font-variant: normal"><span style="font-style: normal">score
-	property using an object declaration with an override so you can see
-	when an observer is added to it. (Generate a log message). How does
-	the Android system know to do this, and what is the observer object?
-	</span></span><span style="font-variant: normal"><span style="font-style: normal">
-	</span></span><span style="font-variant: normal"><font color="#ce181e"><span style="font-style: normal">Driven
-	by combination of </span></font></span><span style="font-variant: normal"><font color="#ce181e"><span style="font-style: normal">the
-	</span></font></span>
+	<li><p><span style="font-variant: normal"><span style="font-style: normal">Modify
+	the MutableLiveData score property using an object declaration with
+	an override so you can see when an observer is added to it.
+	(Generate a log message). How does the Android system know to do
+	this, and what is the observer object? </span></span>
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">Predict
-	the order in which the following methods will be called and
-	returned, including showing which method calls others. 
+	<li><p style="font-variant: normal; font-style: normal">Predict the
+	order in which the following methods will be called and returned,
+	including showing which method calls others. 
 	</p>
 	<ol>
-		<li/>
-<p style="font-variant: normal; font-style: normal">MainActivity.onCreate</p>
-		<li/>
-<p style="font-variant: normal; font-style: normal">MainActivity
+		<li><p style="font-variant: normal; font-style: normal">MainActivity.onCreate</p>
+		<li><p style="font-variant: normal; font-style: normal">MainActivity
 		super.onCreate</p>
-		<li/>
-<p style="font-variant: normal; font-style: normal">setContentView</p>
-		<li/>
-<p style="font-variant: normal; font-style: normal">GameFragment.onCreate</p>
-		<li/>
-<p style="font-variant: normal; font-style: normal">GameFragment.onViewCreated</p>
-		<li/>
-<p style="font-variant: normal; font-style: normal">The
+		<li><p style="font-variant: normal; font-style: normal">setContentView</p>
+		<li><p style="font-variant: normal; font-style: normal">GameFragment.onCreate</p>
+		<li><p style="font-variant: normal; font-style: normal">GameFragment.onViewCreated</p>
+		<li><p style="font-variant: normal; font-style: normal">The
 		observer addition for score</p>
 	</ol>
-	<li/>
-<p style="font-variant: normal; font-style: normal"> Figure
-	out just when the observer is added to score by deliberately
-	inducing an error in the observe function call so as to generate a
-	stack trace in Logcat.  When/where is the observe function called.  
+	<li><p style="font-variant: normal; font-style: normal">Figure out
+	just when the observer is added to score by deliberately inducing an
+	error in the observe function call so as to generate a stack trace
+	in Logcat. When/where is the observe function called. 
 	</p>
-	<li/>
-<p style="font-variant: normal; font-style: normal">Alter the
+	<li><p style="font-variant: normal; font-style: normal">Alter the
 	layout for game_fragment so that there are no uses of @{} in the
 	text definitions. Fix the resultant absence by making your own
 	observer calls, in the appropriate location(s).</p>
 </ol>
 <h3 class="western">Submission</h3>
 <ol>
-	<li/>
-<p>First, demo your work for me and get an OK. Then...</p>
-	<li/>
-<p>Submit a Questions.pdf/docx/html with answers to the
+	<li><p>First, demo your work for me and get an OK. Then...</p>
+	<li><p>Submit a Questions.pdf/docx/html with answers to the
 	noncoding questions above</p>
-	<li/>
-<p>Tag labelled NavigationViewModel in your git repo.</p>
+	<li><p>Tag labelled NavigationViewModel in your git repo.</p>
 </ol>
 <p><br/>
 <br/>
